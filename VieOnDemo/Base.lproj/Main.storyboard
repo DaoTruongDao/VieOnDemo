@@ -13,47 +13,69 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VieOnDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="top" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" tag="10" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số điện thoại" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="3D3-9a-IiV">
-                                <rect key="frame" x="156" y="374" width="102.5" height="34"/>
+                                <rect key="frame" x="156" y="374" width="102" height="34"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật Khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-YU-cfx">
-                                <rect key="frame" x="162.5" y="431" width="89.5" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật Khẩu" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-YU-cfx">
+                                <rect key="frame" x="156" y="431" width="102" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhk-dQ-AQ8">
-                                <rect key="frame" x="184" y="483" width="46" height="30"/>
+                                <rect key="frame" x="117" y="496" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rH-8Y-IsG">
                                 <rect key="frame" x="184" y="548" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oqI-o7-PnM">
+                                <rect key="frame" x="117" y="431" width="31" height="34"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="khG-jl-2mh">
+                                <rect key="frame" x="117" y="374" width="31" height="34"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ul1-UG-14F">
+                                <rect key="frame" x="0.0" y="44" width="414" height="322"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3D3-9a-IiV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="330" id="2qc-Uz-HNC"/>
-                            <constraint firstItem="dhk-dQ-AQ8" firstAttribute="top" secondItem="vmz-YU-cfx" secondAttribute="bottom" constant="18" id="DjV-wQ-mLK"/>
-                            <constraint firstItem="3D3-9a-IiV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F8Z-Ve-1Ak"/>
-                            <constraint firstItem="2rH-8Y-IsG" firstAttribute="leading" secondItem="dhk-dQ-AQ8" secondAttribute="leading" id="LS4-sS-9Hg"/>
-                            <constraint firstItem="vmz-YU-cfx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qgj-Fe-QTO"/>
-                            <constraint firstItem="vmz-YU-cfx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bH3-7g-HH1"/>
-                            <constraint firstItem="2rH-8Y-IsG" firstAttribute="top" secondItem="dhk-dQ-AQ8" secondAttribute="bottom" constant="35" id="eAe-dg-Cnc"/>
-                            <constraint firstItem="dhk-dQ-AQ8" firstAttribute="centerX" secondItem="vmz-YU-cfx" secondAttribute="centerX" id="eVQ-MS-d6e"/>
+                            <constraint firstItem="oqI-o7-PnM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="30K-GC-EZk"/>
+                            <constraint firstItem="oqI-o7-PnM" firstAttribute="bottom" secondItem="vmz-YU-cfx" secondAttribute="bottom" id="3Tu-SX-apR"/>
+                            <constraint firstItem="khG-jl-2mh" firstAttribute="bottom" secondItem="3D3-9a-IiV" secondAttribute="bottom" id="4uU-sX-S9D"/>
+                            <constraint firstItem="khG-jl-2mh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="117" id="80e-gU-Gl6"/>
+                            <constraint firstItem="khG-jl-2mh" firstAttribute="trailing" secondItem="oqI-o7-PnM" secondAttribute="trailing" id="E0W-Ms-tC7"/>
+                            <constraint firstItem="Ul1-UG-14F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="G4u-l3-ntg"/>
+                            <constraint firstItem="khG-jl-2mh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="330" id="Ggz-KD-v0I"/>
+                            <constraint firstItem="3D3-9a-IiV" firstAttribute="top" secondItem="Ul1-UG-14F" secondAttribute="bottom" constant="8" id="HVG-b1-mmM"/>
+                            <constraint firstItem="3D3-9a-IiV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MAE-Sr-7aX"/>
+                            <constraint firstItem="dhk-dQ-AQ8" firstAttribute="top" secondItem="oqI-o7-PnM" secondAttribute="bottom" constant="31" id="WBa-Jw-YaA"/>
+                            <constraint firstItem="2rH-8Y-IsG" firstAttribute="top" secondItem="vmz-YU-cfx" secondAttribute="bottom" constant="83" id="b3e-Wm-Qgp"/>
+                            <constraint firstItem="oqI-o7-PnM" firstAttribute="leading" secondItem="dhk-dQ-AQ8" secondAttribute="leading" id="dDd-Ua-gde"/>
+                            <constraint firstItem="khG-jl-2mh" firstAttribute="leading" secondItem="oqI-o7-PnM" secondAttribute="leading" id="eif-EI-cjU"/>
+                            <constraint firstItem="vmz-YU-cfx" firstAttribute="centerX" secondItem="2rH-8Y-IsG" secondAttribute="centerX" id="gcN-oS-hAo"/>
+                            <constraint firstItem="Ul1-UG-14F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h2h-bi-NTK"/>
+                            <constraint firstItem="oqI-o7-PnM" firstAttribute="top" secondItem="vmz-YU-cfx" secondAttribute="top" id="jcq-XT-FzP"/>
+                            <constraint firstItem="khG-jl-2mh" firstAttribute="top" secondItem="3D3-9a-IiV" secondAttribute="top" id="jlP-vg-fdr"/>
+                            <constraint firstItem="3D3-9a-IiV" firstAttribute="trailing" secondItem="vmz-YU-cfx" secondAttribute="trailing" id="jt1-K1-nuq"/>
+                            <constraint firstItem="3D3-9a-IiV" firstAttribute="leading" secondItem="vmz-YU-cfx" secondAttribute="leading" id="lMt-9T-U9W"/>
+                            <constraint firstItem="Ul1-UG-14F" firstAttribute="centerX" secondItem="3D3-9a-IiV" secondAttribute="centerX" id="myA-YN-tuj"/>
+                            <constraint firstItem="3D3-9a-IiV" firstAttribute="leading" secondItem="khG-jl-2mh" secondAttribute="trailing" constant="8" id="qHn-nF-HI9"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="phone" destination="3D3-9a-IiV" id="dNZ-cR-KAU"/>
+                        <outlet property="background" destination="Ul1-UG-14F" id="PXQ-4l-fiT"/>
                         <outlet property="txtPass" destination="vmz-YU-cfx" id="ZwH-Wp-5Ll"/>
-                        <outlet property="txtPhone" destination="3D3-9a-IiV" id="vfs-gE-sIj"/>
+                        <outlet property="txtPhone" destination="3D3-9a-IiV" id="WkZ-k8-QaY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
