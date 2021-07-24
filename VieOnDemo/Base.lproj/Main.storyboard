@@ -1,24 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VieOnDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" tag="10" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số điện thoại" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="3D3-9a-IiV">
+                                <rect key="frame" x="156" y="374" width="102.5" height="34"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật Khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-YU-cfx">
+                                <rect key="frame" x="162.5" y="431" width="89.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhk-dQ-AQ8">
+                                <rect key="frame" x="184" y="483" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rH-8Y-IsG">
+                                <rect key="frame" x="184" y="548" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3D3-9a-IiV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="330" id="2qc-Uz-HNC"/>
+                            <constraint firstItem="dhk-dQ-AQ8" firstAttribute="top" secondItem="vmz-YU-cfx" secondAttribute="bottom" constant="18" id="DjV-wQ-mLK"/>
+                            <constraint firstItem="3D3-9a-IiV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F8Z-Ve-1Ak"/>
+                            <constraint firstItem="2rH-8Y-IsG" firstAttribute="leading" secondItem="dhk-dQ-AQ8" secondAttribute="leading" id="LS4-sS-9Hg"/>
+                            <constraint firstItem="vmz-YU-cfx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qgj-Fe-QTO"/>
+                            <constraint firstItem="vmz-YU-cfx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bH3-7g-HH1"/>
+                            <constraint firstItem="2rH-8Y-IsG" firstAttribute="top" secondItem="dhk-dQ-AQ8" secondAttribute="bottom" constant="35" id="eAe-dg-Cnc"/>
+                            <constraint firstItem="dhk-dQ-AQ8" firstAttribute="centerX" secondItem="vmz-YU-cfx" secondAttribute="centerX" id="eVQ-MS-d6e"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="phone" destination="3D3-9a-IiV" id="dNZ-cR-KAU"/>
+                        <outlet property="txtPass" destination="vmz-YU-cfx" id="ZwH-Wp-5Ll"/>
+                        <outlet property="txtPhone" destination="3D3-9a-IiV" id="vfs-gE-sIj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-23.188405797101453" y="71.651785714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
