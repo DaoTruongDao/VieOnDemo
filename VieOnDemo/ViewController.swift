@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     var iconClick = false
     let imageicon = UIImageView()
     
+  
+    @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtPass: UITextField!
     
@@ -22,6 +24,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .black
         background.image = UIImage(named: "background")
+        
+        
         
         imageicon.image = UIImage(named: "hide")
         
@@ -51,4 +55,5 @@ class ViewController: UIViewController {
             txtPass.isSecureTextEntry = true
         }
     }
+    
 }

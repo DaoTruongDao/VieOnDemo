@@ -13,7 +13,7 @@
 		6628995626A6746B0070D4B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6628995426A6746B0070D4B6 /* LaunchScreen.storyboard */; };
 		6628996126A6746C0070D4B6 /* VieOnDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628996026A6746C0070D4B6 /* VieOnDemoTests.swift */; };
 		6628996C26A6746C0070D4B6 /* VieOnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628996B26A6746C0070D4B6 /* VieOnDemoUITests.swift */; };
-		66F158C626AC1CA800D32C29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F158C526AC1CA800D32C29 /* Assets.xcassets */; };
+		66F3E25C26B3AE4200639FE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F3E25B26B3AE4200639FE1 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 		6628996726A6746C0070D4B6 /* VieOnDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VieOnDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6628996B26A6746C0070D4B6 /* VieOnDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VieOnDemoUITests.swift; sourceTree = "<group>"; };
 		6628996D26A6746C0070D4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66F158C526AC1CA800D32C29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../.Trashes/501/Assets.xcassets; sourceTree = "<group>"; };
+		66F3E25B26B3AE4200639FE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../demoAppStore/demoAppStore/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 				6628994D26A674690070D4B6 /* ViewController.swift */,
 				6628994F26A674690070D4B6 /* Main.storyboard */,
 				6628995426A6746B0070D4B6 /* LaunchScreen.storyboard */,
+				66F3E25B26B3AE4200639FE1 /* Assets.xcassets */,
 				6628995726A6746B0070D4B6 /* Info.plist */,
-				66F158C526AC1CA800D32C29 /* Assets.xcassets */,
 			);
 			path = VieOnDemo;
 			sourceTree = "<group>";
@@ -229,7 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6628995626A6746B0070D4B6 /* LaunchScreen.storyboard in Resources */,
-				66F158C626AC1CA800D32C29 /* Assets.xcassets in Resources */,
+				66F3E25C26B3AE4200639FE1 /* Assets.xcassets in Resources */,
 				6628995126A674690070D4B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
