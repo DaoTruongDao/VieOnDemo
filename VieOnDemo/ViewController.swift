@@ -12,7 +12,10 @@ class ViewController: UIViewController {
     var iconClick = false
     let imageicon = UIImageView()
     
-  
+    @IBOutlet weak var txtLine2: UITextField!
+    
+    @IBOutlet weak var txtLine: UITextField!
+    
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtPass: UITextField!
@@ -22,12 +25,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .black
+
         background.image = UIImage(named: "background")
-        
-        
+    
+        txtLine.layer.borderColor = UIColor.white.cgColor
+        txtLine.layer.borderWidth = 1.0
+        txtLine2.layer.borderColor = UIColor.white.cgColor
+        txtLine2.layer.borderWidth = 1.0
         
         imageicon.image = UIImage(named: "hide")
+        
         
         let contentView = UIView()
         contentView.addSubview(imageicon)
