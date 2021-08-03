@@ -114,7 +114,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="YTb-W4-IfN">
                                 <rect key="frame" x="109" y="802" width="50" height="50"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gmail" translatesAutoresizingMaskIntoConstraints="NO" id="cQo-NI-Uqp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="cQo-NI-Uqp">
                                 <rect key="frame" x="181" y="802" width="50" height="50"/>
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.85392294124681123" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -196,7 +196,7 @@
         <image name="S-1" width="26" height="26"/>
         <image name="apple" width="50" height="50"/>
         <image name="facebook" width="50" height="50"/>
-        <image name="gmail" width="50" height="50"/>
+        <image name="google" width="50" height="50"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
