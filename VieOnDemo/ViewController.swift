@@ -29,9 +29,9 @@ class ViewController: UIViewController {
 
         background.image = UIImage(named: "background")
     
-        txtLine.layer.borderColor = UIColor.white.cgColor
+        txtLine.layer.borderColor = UIColor.gray.cgColor
         txtLine.layer.borderWidth = 1.0
-        txtLine2.layer.borderColor = UIColor.white.cgColor
+        txtLine2.layer.borderColor = UIColor.gray.cgColor
         txtLine2.layer.borderWidth = 1.0
         
         imageicon.image = UIImage(named: "hide")
