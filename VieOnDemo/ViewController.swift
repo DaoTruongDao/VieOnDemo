@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var iconClick = false
     let imageicon = UIImageView()
     
+  
     @IBOutlet weak var txtLine2: UITextField!
     
     @IBOutlet weak var txtLine: UITextField!
@@ -22,11 +23,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var background: UIImageView!
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+    
 
+        
+        navigationController?.navigationBar.barStyle = .black
+        
         background.image = UIImage(named: "background")
     
         txtLine.layer.borderColor = UIColor.gray.cgColor
