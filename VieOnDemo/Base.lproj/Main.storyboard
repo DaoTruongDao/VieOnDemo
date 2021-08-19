@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Đăng Nhập-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VieOnDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -193,7 +193,9 @@
                             <constraint firstAttribute="trailing" secondItem="ayw-WG-e0p" secondAttribute="trailing" constant="20" id="zRd-wl-XPp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="15w-RH-XDU"/>
+                    <navigationItem key="navigationItem" title="Đăng Nhập" leftItemsSupplementBackButton="YES" id="15w-RH-XDU">
+                        <barButtonItem key="backBarButtonItem" enabled="NO" title="back" image="chevron.left" catalog="system" id="HvN-44-mW9"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="background" destination="Ul1-UG-14F" id="PXQ-4l-fiT"/>
                         <outlet property="btnLogin" destination="2rH-8Y-IsG" id="Gxs-Pd-eo3"/>
@@ -205,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886.95652173913049" y="71.651785714285708"/>
+            <point key="canvasLocation" x="1607" y="72"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AvQ-PG-9Ma">
@@ -215,6 +217,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oxi-O6-hgU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -230,6 +235,7 @@
         <image name="S" width="26" height="26"/>
         <image name="S-1" width="26" height="26"/>
         <image name="apple" width="50" height="50"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="facebook" width="50" height="50"/>
         <image name="google" width="50" height="50"/>
         <namedColor name="AccentColor">

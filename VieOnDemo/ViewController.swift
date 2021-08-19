@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     var iconClick = false
     let imageicon = UIImageView()
     
-  
+    
+    
     @IBOutlet weak var txtLine2: UITextField!
     
     @IBOutlet weak var txtLine: UITextField!
@@ -28,11 +29,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-    
+        
+        let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
+        navigationItem.leftBarButtonItem = leftButton
+        
 
         
-        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .white
         
+        
+        navigationController?.navigationBar.barStyle = .black
+            
         background.image = UIImage(named: "background")
     
         txtLine.layer.borderColor = UIColor.gray.cgColor
@@ -55,6 +62,10 @@ class ViewController: UIViewController {
         imageicon.isUserInteractionEnabled = true
         imageicon.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+//    @objc func leftAction() {
+//            print("taped")
+//        }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
         let tappedImage = tapGestureRecognizer.view as! UIImageView
