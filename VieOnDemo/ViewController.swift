@@ -25,6 +25,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var background: UIImageView!
     
     
+    @IBAction func forgotPass(_ sender: Any) {
+        self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
