@@ -42,8 +42,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vim-sL-Irv">
-                                <rect key="frame" x="20" y="444" width="26" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="S-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vim-sL-Irv">
+                                <rect key="frame" x="20" y="444" width="48" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0eM-iP-CyH"/>
                                 </constraints>
@@ -68,6 +68,10 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="conTinue:" destination="VOy-aE-KwV" eventType="touchUpInside" id="8gc-yl-in2"/>
+                                    <segue destination="M1A-Uu-7ft" kind="show" identifier="singInedSeque" id="QJZ-ZU-40V"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn đã có tài khoản?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mw-rm-Z2l">
                                 <rect key="frame" x="50" y="680" width="158" height="20.5"/>
@@ -116,6 +120,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lxf-zC-m2s"/>
+                    <connections>
+                        <outlet property="phone" destination="BIc-9j-8dC" id="h6F-kL-sQf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8j-v7-bWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,18 +161,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S" translatesAutoresizingMaskIntoConstraints="NO" id="oqI-o7-PnM">
-                                <rect key="frame" x="20" y="403" width="46" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="S" translatesAutoresizingMaskIntoConstraints="NO" id="oqI-o7-PnM">
+                                <rect key="frame" x="6" y="403" width="46" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Lic-2g-6rG"/>
                                     <constraint firstAttribute="width" constant="46" id="MqD-fS-Qr2"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="YcS-OS-Dsi"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S-1" translatesAutoresizingMaskIntoConstraints="NO" id="khG-jl-2mh">
-                                <rect key="frame" x="20" y="326" width="48" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="GUG-aQ-Mgr"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ul1-UG-14F">
@@ -189,6 +189,10 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="singIn_tap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mn1-NJ-jGk"/>
+                                    <segue destination="M1A-Uu-7ft" kind="show" identifier="singInSeque" id="zgF-Gx-YNd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhk-dQ-AQ8">
                                 <rect key="frame" x="20" y="474" width="148" height="40"/>
@@ -256,6 +260,13 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="S-1" translatesAutoresizingMaskIntoConstraints="NO" id="khG-jl-2mh">
+                                <rect key="frame" x="6" y="326" width="48" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="2P2-Yi-3Is"/>
+                                    <constraint firstAttribute="width" constant="48" id="wr0-i8-PPj"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
@@ -324,6 +335,34 @@
             </objects>
             <point key="canvasLocation" x="1607" y="72"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="fLB-Ke-hEx">
+            <objects>
+                <viewController id="IJm-ez-Acw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tEk-bM-cH8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng Nhập Thành Công" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCV-ZL-Vxs">
+                                <rect key="frame" x="41" y="430" width="332.5" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9s2-dx-omj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HCV-ZL-Vxs" firstAttribute="centerX" secondItem="tEk-bM-cH8" secondAttribute="centerX" id="W62-xQ-MGV"/>
+                            <constraint firstItem="HCV-ZL-Vxs" firstAttribute="centerY" secondItem="tEk-bM-cH8" secondAttribute="centerY" id="mpH-q8-8GG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wix-bm-gHC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxS-X2-udP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3705.7971014492755" y="86.383928571428569"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="AvQ-PG-9Ma">
             <objects>
@@ -345,7 +384,29 @@
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="71.651785714285708"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hxb-5i-1sz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M1A-Uu-7ft" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Q5p-6y-F2p"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gA3-Go-MJe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IJm-ez-Acw" kind="relationship" relationship="rootViewController" id="FxU-Bz-ZqZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Kf-6E-FHX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2795.6521739130435" y="86.383928571428569"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QJZ-ZU-40V"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="S" width="26" height="26"/>
         <image name="S-1" width="26" height="26"/>
@@ -359,6 +420,9 @@
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>

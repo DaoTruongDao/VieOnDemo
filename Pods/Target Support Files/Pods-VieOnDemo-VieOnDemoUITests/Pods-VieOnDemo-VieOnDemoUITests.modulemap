@@ -1,0 +1,6 @@
+framework module Pods_VieOnDemo_VieOnDemoUITests {
+  umbrella header "Pods-VieOnDemo-VieOnDemoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Firebase
+
 
 class ForgotPassViewController: UIViewController {
 
+    @IBOutlet weak var phone: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +19,10 @@ class ForgotPassViewController: UIViewController {
     }
     
 
+    @IBAction func conTinue(_ sender: Any) {
+        self.performSegue(withIdentifier: "singInedSeque", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
