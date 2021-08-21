@@ -4,25 +4,53 @@
 //
 //  Created by Đạo Trường on 20/08/2021.
 //
-
 import UIKit
 import Firebase
-
+import FirebaseAuth
+import FirebaseCore
 
 class ForgotPassViewController: UIViewController {
+    @IBOutlet weak var txtPhone: UITextField!
+    
+    @IBOutlet weak var oTP: UITextField!
 
-    @IBOutlet weak var phone: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        oTP.isHidden = true
+    // Do any additional setup after loading the view.
     }
-    
-
-    @IBAction func conTinue(_ sender: Any) {
-        self.performSegue(withIdentifier: "singInedSeque", sender: nil)
+    var verfitication_id : String? = nil
+    @IBAction func submit(_ sender: Any) {
+        if oTP.isHidden{
+            if !txtPhone.text!.isEmpty {
+                Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+                PhoneAuthProvider.provider().verifyPhoneNumber(txtPhone.text!, uiDelegate: nil) { (verificationID, error) in
+                    if error != nil {
+                        return
+                        
+                    }else{
+                        self.verfitication_id = verificationID
+                        self.oTP.isHidden = false
+                    }
+                }
+            }else{
+                print("Enter your phone number")
+            }
+        }else{
+            if verfitication_id != nil {
+                let  credential = PhoneAuthProvider.provider().credential(withVerificationID: verfitication_id!, verificationCode: oTP.text!)
+                Auth.auth().signIn(with: credential) { (authData, error) in
+                    if error != nil{
+                        print(error.debugDescription)
+                    }else{
+                        print("AUTHENTICATION SUCCESS WITH - " + (authData?.user.phoneNumber! ?? "NO PHONE NUMBER"))
+                    }
+                }
+            }else{
+                print("Error in getting verfitication ID")
+            }
+        }
     }
-    
     /*
     // MARK: - Navigation
 
@@ -32,5 +60,18 @@ class ForgotPassViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
+//    @IBAction func conTinue(_ sender: Any) {
+//        guard let phoneNumber = txtPhone.text else {return}
+//
+//        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil){
+//            (verificationId,error) in
+//            if error == nil{
+//                print(verificationId)
+//            }else{
+//                print("Unable", error?.localizedDescription)
+//            }
+//        }
+//    }
 }

@@ -13,7 +13,7 @@
         <!--Forgot Pass View Controller-->
         <scene sceneID="kty-pd-Bcd">
             <objects>
-                <viewController id="VOy-aE-KwV" customClass="ForgotPassViewController" customModule="VieOnDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotPassViewController" id="VOy-aE-KwV" customClass="ForgotPassViewController" customModule="VieOnDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HBb-nS-nJS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,6 +42,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <textField opaque="NO" tag="10" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="249" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="OTP" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="i96-pZ-U2D">
+                                <rect key="frame" x="50" y="510" width="334" height="40"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="S-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vim-sL-Irv">
                                 <rect key="frame" x="20" y="444" width="48" height="40"/>
                                 <constraints>
@@ -54,7 +67,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ot-lH-utD">
-                                <rect key="frame" x="20" y="584" width="374" height="48"/>
+                                <rect key="frame" x="23" y="624" width="374" height="48"/>
                                 <color key="backgroundColor" red="0.5439325706" green="0.5439325706" blue="0.5439325706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="0k4-6m-p2l"/>
@@ -69,8 +82,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="conTinue:" destination="VOy-aE-KwV" eventType="touchUpInside" id="8gc-yl-in2"/>
-                                    <segue destination="M1A-Uu-7ft" kind="show" identifier="singInedSeque" id="QJZ-ZU-40V"/>
+                                    <action selector="submit:" destination="VOy-aE-KwV" eventType="touchUpInside" id="DqN-dK-XAF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn đã có tài khoản?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mw-rm-Z2l">
@@ -96,24 +108,28 @@
                             <constraint firstItem="iGe-aH-Jly" firstAttribute="centerY" secondItem="5Mw-rm-Z2l" secondAttribute="centerY" id="2Oi-H5-YPE"/>
                             <constraint firstItem="Bko-c5-lIf" firstAttribute="bottom" secondItem="Vim-sL-Irv" secondAttribute="bottom" constant="378" id="5lV-No-Sd9"/>
                             <constraint firstItem="Bdg-Y3-ahh" firstAttribute="bottom" secondItem="BIc-9j-8dC" secondAttribute="bottom" id="5qK-GQ-S48"/>
+                            <constraint firstItem="3Ot-lH-utD" firstAttribute="top" secondItem="i96-pZ-U2D" secondAttribute="bottom" constant="74" id="80c-8D-Wmh"/>
                             <constraint firstItem="Bdg-Y3-ahh" firstAttribute="leading" secondItem="HBb-nS-nJS" secondAttribute="leadingMargin" constant="11" id="8Nt-i2-3AD"/>
                             <constraint firstItem="BIc-9j-8dC" firstAttribute="leading" secondItem="Bko-c5-lIf" secondAttribute="leading" constant="60" id="8m8-rz-FjM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bdg-Y3-ahh" secondAttribute="trailing" constant="-11" id="9g5-CA-WSp"/>
-                            <constraint firstItem="3Ot-lH-utD" firstAttribute="leading" secondItem="Bko-c5-lIf" secondAttribute="leading" constant="20" id="Abw-T3-qjL"/>
+                            <constraint firstItem="3Ot-lH-utD" firstAttribute="leading" secondItem="Bko-c5-lIf" secondAttribute="leading" constant="23" id="Abw-T3-qjL"/>
                             <constraint firstItem="5Mw-rm-Z2l" firstAttribute="leading" secondItem="Bko-c5-lIf" secondAttribute="leading" constant="50" id="BBt-5a-jVl"/>
+                            <constraint firstItem="Bko-c5-lIf" firstAttribute="trailing" secondItem="i96-pZ-U2D" secondAttribute="trailing" constant="30" id="FLS-Si-UDz"/>
                             <constraint firstItem="b74-46-rl2" firstAttribute="top" secondItem="CKx-QO-M5s" secondAttribute="bottom" constant="8" id="GxF-Wz-39D"/>
-                            <constraint firstItem="5Mw-rm-Z2l" firstAttribute="top" secondItem="3Ot-lH-utD" secondAttribute="bottom" constant="48" id="IUe-hu-wdy"/>
+                            <constraint firstItem="5Mw-rm-Z2l" firstAttribute="top" secondItem="3Ot-lH-utD" secondAttribute="bottom" constant="8" id="IUe-hu-wdy"/>
+                            <constraint firstItem="i96-pZ-U2D" firstAttribute="leading" secondItem="5Mw-rm-Z2l" secondAttribute="leading" id="Kr2-ac-3uX"/>
                             <constraint firstItem="Vim-sL-Irv" firstAttribute="bottom" secondItem="BIc-9j-8dC" secondAttribute="bottom" id="LuO-4Y-A0c"/>
-                            <constraint firstItem="Bko-c5-lIf" firstAttribute="trailing" secondItem="3Ot-lH-utD" secondAttribute="trailing" constant="20" id="P7Y-UP-RPh"/>
+                            <constraint firstItem="Bko-c5-lIf" firstAttribute="trailing" secondItem="3Ot-lH-utD" secondAttribute="trailing" constant="17" id="P7Y-UP-RPh"/>
                             <constraint firstItem="Bko-c5-lIf" firstAttribute="trailing" secondItem="BIc-9j-8dC" secondAttribute="trailing" constant="20" id="RL4-EB-Nqv"/>
                             <constraint firstItem="CKx-QO-M5s" firstAttribute="leading" secondItem="Bko-c5-lIf" secondAttribute="leading" constant="60" id="SKF-RP-bLS"/>
                             <constraint firstItem="Vim-sL-Irv" firstAttribute="top" secondItem="b74-46-rl2" secondAttribute="bottom" constant="60" id="Ysg-Et-7Mv"/>
                             <constraint firstItem="Vim-sL-Irv" firstAttribute="leading" secondItem="Bko-c5-lIf" secondAttribute="leading" constant="20" id="a5H-Oi-fVf"/>
+                            <constraint firstItem="i96-pZ-U2D" firstAttribute="top" secondItem="BIc-9j-8dC" secondAttribute="bottom" constant="26" id="fd8-GE-y7b"/>
                             <constraint firstItem="CKx-QO-M5s" firstAttribute="top" secondItem="Bko-c5-lIf" secondAttribute="top" constant="19" id="ghT-wc-UIV"/>
                             <constraint firstItem="Bko-c5-lIf" firstAttribute="trailing" secondItem="b74-46-rl2" secondAttribute="trailing" constant="20" id="hkj-LK-13R"/>
                             <constraint firstItem="BIc-9j-8dC" firstAttribute="top" secondItem="b74-46-rl2" secondAttribute="bottom" constant="60" id="oSN-aY-Vea"/>
                             <constraint firstItem="b74-46-rl2" firstAttribute="leading" secondItem="Bko-c5-lIf" secondAttribute="leading" constant="20" id="pUA-6L-kbL"/>
-                            <constraint firstItem="3Ot-lH-utD" firstAttribute="top" secondItem="BIc-9j-8dC" secondAttribute="bottom" constant="100" id="po3-yE-Qrx"/>
+                            <constraint firstItem="3Ot-lH-utD" firstAttribute="top" secondItem="BIc-9j-8dC" secondAttribute="bottom" constant="140" id="po3-yE-Qrx"/>
                             <constraint firstItem="Bko-c5-lIf" firstAttribute="trailing" secondItem="CKx-QO-M5s" secondAttribute="trailing" constant="54" id="qvM-XT-vVB"/>
                             <constraint firstItem="Bdg-Y3-ahh" firstAttribute="top" secondItem="b74-46-rl2" secondAttribute="bottom" constant="99" id="rne-rg-0ly"/>
                             <constraint firstItem="iGe-aH-Jly" firstAttribute="leading" secondItem="5Mw-rm-Z2l" secondAttribute="trailing" constant="8" id="tud-Xh-i6a"/>
@@ -121,7 +137,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="lxf-zC-m2s"/>
                     <connections>
-                        <outlet property="phone" destination="BIc-9j-8dC" id="h6F-kL-sQf"/>
+                        <outlet property="oTP" destination="i96-pZ-U2D" id="s5Y-08-IqG"/>
+                        <outlet property="txtPhone" destination="BIc-9j-8dC" id="mfp-vc-b21"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8j-v7-bWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -404,9 +421,6 @@
             <point key="canvasLocation" x="2795.6521739130435" y="86.383928571428569"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="QJZ-ZU-40V"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="S" width="26" height="26"/>
         <image name="S-1" width="26" height="26"/>

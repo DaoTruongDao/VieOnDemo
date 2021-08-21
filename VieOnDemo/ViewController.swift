@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+
 class ViewController: UIViewController {
     
     var iconClick = false
@@ -84,27 +86,20 @@ class ViewController: UIViewController {
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        AppUtility.lockOrientation(.portrait)
-//        // Or to rotate and lock
-//        // AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
-//
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        // Don't forget to reset when view is being removed
-//        AppUtility.lockOrientation(.all)
-//    }
-    
-    
     @IBAction func singIn_tap(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "singInSeque", sender: nil)
+//        self.performSegue(withIdentifier: "singInSeque", sender: nil)
+        let auth = Auth.auth()
+        
+        auth.signIn(withEmail: txtPhone.text!, password: txtPass.text!) { (authResult, error) in
+            if error != nil{
+//                self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+                return
+            }
+        }
+       
         
     }
    
+    
 }
