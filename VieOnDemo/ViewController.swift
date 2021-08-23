@@ -30,11 +30,11 @@ class ViewController: UIViewController {
     @IBAction func forgotPass(_ sender: Any) {
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
+
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
         
@@ -89,16 +89,22 @@ class ViewController: UIViewController {
     @IBAction func singIn_tap(_ sender: Any) {
         
 //        self.performSegue(withIdentifier: "singInSeque", sender: nil)
-        let auth = Auth.auth()
+//        let auth = Auth.auth()
+//
+//        auth.signIn(withEmail: txtPhone.text!, password: txtPass.text!) { (authResult, error) in
+//            if error != nil{
+//
+//                return
+//            }
+//        }
+        let phone = txtPhone.text
+        let pass = txtPass.text
         
-        auth.signIn(withEmail: txtPhone.text!, password: txtPass.text!) { (authResult, error) in
-            if error != nil{
-//                self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-                return
-            }
+        if pass == "123456" && phone == "0355505111" {
+            print("Login Scuccess")
+        }else{
+            print("Error Singin")
         }
-       
-        
     }
    
     
