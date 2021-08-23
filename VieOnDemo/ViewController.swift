@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , UITextFieldDelegate{
     
     var iconClick = false
     let imageicon = UIImageView()
@@ -34,7 +34,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        txtPhone.delegate = self
+        txtPass.delegate = self
+        
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
         
@@ -89,23 +91,44 @@ class ViewController: UIViewController {
     @IBAction func singIn_tap(_ sender: Any) {
         
 //        self.performSegue(withIdentifier: "singInSeque", sender: nil)
-//        let auth = Auth.auth()
-//
-//        auth.signIn(withEmail: txtPhone.text!, password: txtPass.text!) { (authResult, error) in
-//            if error != nil{
-//
-//                return
-//            }
-//        }
-        let phone = txtPhone.text
-        let pass = txtPass.text
+        let phone = "0355505111"
+        let pass = "123456"
         
-        if pass == "123456" && phone == "0355505111" {
+        if txtPhone.text == phone && txtPass.text == pass{
             print("Login Scuccess")
-        }else{
-            print("Error Singin")
+        }else if txtPhone.text != phone {
+            UIView.animate(withDuration: 0.1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
+                self.txtPhone.center.x += 10
+            } completion: { (nil) in}
+            UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
+                self.txtPhone.center.x -= 20
+            } completion: { (nil) in}
+            UIView.animate(withDuration: 0.1, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
+                self.txtPhone.center.x += 10
+            } completion: { (nil) in}
+        }else if txtPass.text != pass {
+            UIView.animate(withDuration: 0.1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
+                self.txtPass.center.x += 10
+            } completion: { (nil) in}
+            UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
+                self.txtPass.center.x -= 20
+            } completion: { (nil) in}
+            UIView.animate(withDuration: 0.1, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
+                self.txtPass.center.x += 10
+            } completion: { (nil) in}
         }
     }
-   
     
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+         if(textField == txtPhone) || (textField == txtPass){
+            let currentText = textField.text! + string
+            return currentText.count <= 10
+         }
+         return true;
+        }
+        
 }
+    
