@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SwiftUI
 
 class ViewController: UIViewController , UITextFieldDelegate{
     
@@ -15,6 +16,8 @@ class ViewController: UIViewController , UITextFieldDelegate{
     let imageicon = UIImageView()
     
     
+    @IBOutlet weak var wrongPhone: UILabel!
+    @IBOutlet weak var wrongPass: UILabel!
     
     @IBOutlet weak var txtLine2: UITextField!
     
@@ -30,12 +33,44 @@ class ViewController: UIViewController , UITextFieldDelegate{
     @IBAction func forgotPass(_ sender: Any) {
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
-
+//    enum stageLogin {
+//        case normal
+//        case editing
+//        case warning
+//        case failed
+//        case success
+//    }
+//    let phone = "0355505111"
+//    let pass = "123456"
+//    var state: stageLogin?
+//    func something(){
+//        switch state {
+//        case .warning:
+//            if txtPhone.text!.isEmpty || txtPass.text!.isEmpty {
+//                txtLine.layer.borderColor = UIColor.red.cgColor
+//                txtLine.layer.borderWidth = 1.0
+//                txtLine2.layer.borderColor = UIColor.red.cgColor
+//                txtLine2.layer.borderWidth = 1.0
+//            }
+//            wrongPass.isHidden = false
+//            wrongPhone.isHidden = false
+//        case .success:
+//            if txtPhone.text == phone && txtPass.text == pass {
+//                print("Login success")
+//            }
+//
+//        default:
+//            break
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         txtPhone.delegate = self
         txtPass.delegate = self
+        wrongPass.isHidden = true
+        wrongPhone.isHidden = true
         
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
@@ -69,10 +104,7 @@ class ViewController: UIViewController , UITextFieldDelegate{
         imageicon.isUserInteractionEnabled = true
         imageicon.addGestureRecognizer(tapGestureRecognizer)
     }
-    
-//    @objc func leftAction() {
-//            print("taped")
-//        }
+
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
         let tappedImage = tapGestureRecognizer.view as! UIImageView
@@ -91,44 +123,51 @@ class ViewController: UIViewController , UITextFieldDelegate{
     @IBAction func singIn_tap(_ sender: Any) {
         
 //        self.performSegue(withIdentifier: "singInSeque", sender: nil)
-        let phone = "0355505111"
-        let pass = "123456"
         
-        if txtPhone.text == phone && txtPass.text == pass{
-            print("Login Scuccess")
-        }else if txtPhone.text != phone {
-            UIView.animate(withDuration: 0.1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
-                self.txtPhone.center.x += 10
-            } completion: { (nil) in}
-            UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
-                self.txtPhone.center.x -= 20
-            } completion: { (nil) in}
-            UIView.animate(withDuration: 0.1, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
-                self.txtPhone.center.x += 10
-            } completion: { (nil) in}
-        }else if txtPass.text != pass {
-            UIView.animate(withDuration: 0.1, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
-                self.txtPass.center.x += 10
-            } completion: { (nil) in}
-            UIView.animate(withDuration: 0.1, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
-                self.txtPass.center.x -= 20
-            } completion: { (nil) in}
-            UIView.animate(withDuration: 0.1, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
-                self.txtPass.center.x += 10
-            } completion: { (nil) in}
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
+        if textField == txtPhone {
+            txtPhone.placeholder = "số điện thoại vd: 0901234567"
         }
+        if textField == txtPass {
+            txtPass.placeholder = "mật khẩu vd:daodeptrai1234"
+        }
+        return true
     }
     
     
+    func textFieldDidEndEditing(_ textField: UITextField){
+ 
+        if textField == txtPhone{
+            let currentText = textField.text!
+            if currentText.count < 10 {
+                wrongPhone.isHidden = false
+                txtLine2.layer.borderColor = UIColor.red.cgColor
+                txtLine2.layer.borderWidth = 1.0
+            }
+        }
+        if textField == txtPass {
+            let currentText = textField.text!
+            if currentText.count > 20 || currentText.count < 8{
+                wrongPass.isHidden = false
+                txtLine.layer.borderColor = UIColor.red.cgColor
+                txtLine.layer.borderWidth = 1.0
+            }
+        }
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-         if(textField == txtPhone) || (textField == txtPass){
+         if(textField == txtPhone){
             let currentText = textField.text! + string
             return currentText.count <= 10
          }
-         return true;
+        if textField == txtPass {
+            let currentText = textField.text! + string
+            return currentText.count < 20
         }
-        
+         return true;
+    }
+
 }
+
     

@@ -153,19 +153,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" tag="10" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="249" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Số điện thoại" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="3D3-9a-IiV">
-                                <rect key="frame" x="60" y="326" width="334" height="40"/>
-                                <color key="tintColor" name="AccentColor"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mật Khẩu" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-YU-cfx">
                                 <rect key="frame" x="60" y="384" width="334" height="40"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -284,6 +271,31 @@
                                     <constraint firstAttribute="height" constant="40" id="lSF-a5-Qr7"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số điện thoại có 10 số" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nj-rE-JIh">
+                                <rect key="frame" x="243" y="358" width="151" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.85392294120000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu từ 8-20 ký tự" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtU-fW-7Rj">
+                                <rect key="frame" x="236.5" y="427" width="157.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.85392294120000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" tag="10" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="249" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Số điện thoại" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="3D3-9a-IiV">
+                                <rect key="frame" x="46" y="328" width="334" height="40"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
@@ -310,10 +322,13 @@
                             <constraint firstItem="2rH-8Y-IsG" firstAttribute="top" secondItem="dhk-dQ-AQ8" secondAttribute="bottom" constant="30" id="RIz-KK-DJp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SeQ-YN-fDR" secondAttribute="bottom" constant="10" id="U2P-sl-JMq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3D3-9a-IiV" secondAttribute="trailing" constant="20" id="Xlg-Op-dgt"/>
+                            <constraint firstItem="5Nj-rE-JIh" firstAttribute="top" secondItem="ayw-WG-e0p" secondAttribute="bottom" constant="2" id="b2n-ut-VzO"/>
                             <constraint firstItem="SeQ-YN-fDR" firstAttribute="top" secondItem="YTb-W4-IfN" secondAttribute="top" id="bCB-ti-Ugx"/>
                             <constraint firstItem="oqI-o7-PnM" firstAttribute="leading" secondItem="dhk-dQ-AQ8" secondAttribute="leading" id="dDd-Ua-gde"/>
                             <constraint firstItem="vmz-YU-cfx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="dfC-6s-Vj3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Nj-rE-JIh" secondAttribute="trailing" constant="20" id="enp-zq-jcT"/>
                             <constraint firstItem="WO0-TZ-ln2" firstAttribute="top" secondItem="oqI-o7-PnM" secondAttribute="bottom" constant="8" id="gLd-s3-SG6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LtU-fW-7Rj" secondAttribute="trailing" constant="20" id="jJr-tC-yFJ"/>
                             <constraint firstItem="cQo-NI-Uqp" firstAttribute="leading" secondItem="YTb-W4-IfN" secondAttribute="trailing" constant="26" id="ju8-sf-olg"/>
                             <constraint firstItem="cQo-NI-Uqp" firstAttribute="centerX" secondItem="c53-q5-f72" secondAttribute="centerX" id="kcv-v5-7BN"/>
                             <constraint firstItem="dhk-dQ-AQ8" firstAttribute="top" secondItem="WO0-TZ-ln2" secondAttribute="bottom" constant="30" id="lBN-0Y-Edn"/>
@@ -331,6 +346,7 @@
                             <constraint firstItem="WO0-TZ-ln2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="w25-Y7-cWg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2rH-8Y-IsG" secondAttribute="trailing" constant="20" id="wVx-K0-oFL"/>
                             <constraint firstItem="ayw-WG-e0p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="wrt-vy-741"/>
+                            <constraint firstItem="LtU-fW-7Rj" firstAttribute="top" secondItem="WO0-TZ-ln2" secondAttribute="bottom" constant="2" id="yhv-p8-gML"/>
                             <constraint firstAttribute="trailing" secondItem="ayw-WG-e0p" secondAttribute="trailing" constant="20" id="zRd-wl-XPp"/>
                         </constraints>
                     </view>
@@ -344,6 +360,8 @@
                         <outlet property="txtLine2" destination="ayw-WG-e0p" id="sDb-FG-ofT"/>
                         <outlet property="txtPass" destination="vmz-YU-cfx" id="ZwH-Wp-5Ll"/>
                         <outlet property="txtPhone" destination="3D3-9a-IiV" id="WkZ-k8-QaY"/>
+                        <outlet property="wrongPass" destination="LtU-fW-7Rj" id="IfD-j6-7tl"/>
+                        <outlet property="wrongPhone" destination="5Nj-rE-JIh" id="34u-5D-oay"/>
                         <segue destination="VOy-aE-KwV" kind="show" identifier="forgotPassSegue" id="Xcd-ha-6BA"/>
                     </connections>
                 </viewController>
