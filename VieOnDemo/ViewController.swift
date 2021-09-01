@@ -29,41 +29,11 @@ class ViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet weak var background: UIImageView!
     
+    @IBOutlet weak var wrongPassAndPhone: UILabel!
     
     @IBAction func forgotPass(_ sender: Any) {
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
-//    enum stageLogin {
-//        case normal
-//        case editing
-//        case warning
-//        case failed
-//        case success
-//    }
-//    let phone = "0355505111"
-//    let pass = "123456"
-//    var state: stageLogin?
-//    func something(){
-//        switch state {
-//        case .warning:
-//            if txtPhone.text!.isEmpty || txtPass.text!.isEmpty {
-//                txtLine.layer.borderColor = UIColor.red.cgColor
-//                txtLine.layer.borderWidth = 1.0
-//                txtLine2.layer.borderColor = UIColor.red.cgColor
-//                txtLine2.layer.borderWidth = 1.0
-//            }
-//            wrongPass.isHidden = false
-//            wrongPhone.isHidden = false
-//        case .success:
-//            if txtPhone.text == phone && txtPass.text == pass {
-//                print("Login success")
-//            }
-//
-//        default:
-//            break
-//        }
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -71,6 +41,8 @@ class ViewController: UIViewController , UITextFieldDelegate{
         txtPass.delegate = self
         wrongPass.isHidden = true
         wrongPhone.isHidden = true
+        wrongPassAndPhone.isHidden = true
+
         
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
@@ -121,16 +93,29 @@ class ViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBAction func singIn_tap(_ sender: Any) {
-        
-//        self.performSegue(withIdentifier: "singInSeque", sender: nil)
+        let myPhone = txtPhone.text!
+        let myPass = txtPass.text!
+        if myPhone.count == 10 && myPass.count >= 6{
+            if myPass == "123456" && myPhone == "0355505111" {
+                self.performSegue(withIdentifier: "loginSeque", sender: nil)
+            }else {
+                wrongPassAndPhone.isHidden = false
+            }
+        }
         
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         if textField == txtPhone {
-            txtPhone.placeholder = "số điện thoại vd: 0901234567"
+            txtPhone.placeholder = "vd: 0901234567"
+            txtPhone.textColor = UIColor.gray
+            txtLine2.layer.borderColor = UIColor.white.cgColor
+            txtLine2.layer.borderWidth = 1.0
         }
         if textField == txtPass {
-            txtPass.placeholder = "mật khẩu vd:daodeptrai1234"
+            txtPass.placeholder = "6-20 ký tự"
+            txtPass.textColor = UIColor.gray
+            txtLine.layer.borderColor = UIColor.white.cgColor
+            txtLine.layer.borderWidth = 1.0
         }
         return true
     }
@@ -145,12 +130,24 @@ class ViewController: UIViewController , UITextFieldDelegate{
                 txtLine2.layer.borderColor = UIColor.red.cgColor
                 txtLine2.layer.borderWidth = 1.0
             }
+            if txtPhone.text == "" {
+                txtPhone.placeholder = "Số điện thoại"
+                wrongPhone.isHidden = true
+                txtLine2.layer.borderColor = UIColor.gray.cgColor
+                txtLine2.layer.borderWidth = 1.0
+            }
         }
         if textField == txtPass {
             let currentText = textField.text!
             if currentText.count > 20 || currentText.count < 8{
                 wrongPass.isHidden = false
                 txtLine.layer.borderColor = UIColor.red.cgColor
+                txtLine.layer.borderWidth = 1.0
+            }
+            if txtPass.text == "" {
+                txtPass.placeholder = "Mật Khẩu"
+                wrongPass.isHidden = true
+                txtLine.layer.borderColor = UIColor.gray.cgColor
                 txtLine.layer.borderWidth = 1.0
             }
         }
@@ -163,7 +160,7 @@ class ViewController: UIViewController , UITextFieldDelegate{
          }
         if textField == txtPass {
             let currentText = textField.text! + string
-            return currentText.count < 20
+            return currentText.count <= 20
         }
          return true;
     }
