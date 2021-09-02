@@ -16,6 +16,7 @@ class ViewController: UIViewController , UITextFieldDelegate{
     let imageicon = UIImageView()
     
     
+    @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var wrongPhone: UILabel!
     @IBOutlet weak var wrongPass: UILabel!
     
@@ -25,10 +26,10 @@ class ViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtPhone: UITextField!
-    @IBOutlet weak var txtPass: UITextField!
-    
     @IBOutlet weak var background: UIImageView!
     
+    @IBOutlet weak var txtPass: UITextField!
+    @IBOutlet weak var pass: UILabel!
     @IBOutlet weak var wrongPassAndPhone: UILabel!
     
     @IBAction func forgotPass(_ sender: Any) {
@@ -42,7 +43,8 @@ class ViewController: UIViewController , UITextFieldDelegate{
         wrongPass.isHidden = true
         wrongPhone.isHidden = true
         wrongPassAndPhone.isHidden = true
-
+        phone.isHidden = true
+        pass.isHidden = true
         
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
@@ -106,13 +108,14 @@ class ViewController: UIViewController , UITextFieldDelegate{
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         if textField == txtPhone {
-            txtPhone.placeholder = "vd: 0901234567"
-            txtPhone.textColor = UIColor.gray
+            phone.isHidden = false
+            txtPhone.attributedPlaceholder = NSAttributedString(string: "vd: 0355505111",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
             txtLine2.layer.borderColor = UIColor.white.cgColor
             txtLine2.layer.borderWidth = 1.0
         }
         if textField == txtPass {
-            txtPass.placeholder = "6-20 ký tự"
+            pass.isHidden = false
+            txtPass.attributedPlaceholder = NSAttributedString(string: "6-20 ký tự",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
             txtPass.textColor = UIColor.gray
             txtLine.layer.borderColor = UIColor.white.cgColor
             txtLine.layer.borderWidth = 1.0
@@ -131,10 +134,11 @@ class ViewController: UIViewController , UITextFieldDelegate{
                 txtLine2.layer.borderWidth = 1.0
             }
             if txtPhone.text == "" {
-                txtPhone.placeholder = "Số điện thoại"
+                txtPhone.attributedPlaceholder = NSAttributedString(string: "Số điện thoại",attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
                 wrongPhone.isHidden = true
                 txtLine2.layer.borderColor = UIColor.gray.cgColor
                 txtLine2.layer.borderWidth = 1.0
+                phone.isHidden = true
             }
         }
         if textField == txtPass {
@@ -145,10 +149,11 @@ class ViewController: UIViewController , UITextFieldDelegate{
                 txtLine.layer.borderWidth = 1.0
             }
             if txtPass.text == "" {
-                txtPass.placeholder = "Mật Khẩu"
+                txtPass.attributedPlaceholder = NSAttributedString(string: "Mật khẩu",attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
                 wrongPass.isHidden = true
                 txtLine.layer.borderColor = UIColor.gray.cgColor
                 txtLine.layer.borderWidth = 1.0
+                pass.isHidden = true
             }
         }
     }

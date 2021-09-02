@@ -153,18 +153,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mật Khẩu" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-YU-cfx">
-                                <rect key="frame" x="52" y="384" width="342" height="40"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="84J-RS-S24">
+                                <rect key="frame" x="52" y="312" width="338" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số điện thoại" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKN-lU-Nqp">
+                                        <rect key="frame" x="0.0" y="0.0" width="338" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                        <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <textField opaque="NO" tag="10" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="249" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Số điện thoại" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="3D3-9a-IiV">
+                                        <rect key="frame" x="0.0" y="20.5" width="338" height="20.5"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3D3-9a-IiV" firstAttribute="top" secondItem="84J-RS-S24" secondAttribute="top" constant="20.5" id="K82-DH-w1K"/>
+                                    <constraint firstAttribute="bottom" secondItem="3D3-9a-IiV" secondAttribute="bottom" id="TXb-z7-2ur"/>
+                                </constraints>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ul1-UG-14F">
                                 <rect key="frame" x="0.0" y="88" width="414" height="216"/>
                                 <constraints>
@@ -273,21 +289,8 @@
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.85392294120000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="10" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" verticalHuggingPriority="249" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Số điện thoại" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="3D3-9a-IiV">
-                                <rect key="frame" x="46" y="328" width="334" height="40"/>
-                                <color key="tintColor" name="AccentColor"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số điện thoại hoặc mật khẩu không đúng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEP-LS-kax">
-                                <rect key="frame" x="91" y="504" width="232" height="15"/>
+                                <rect key="frame" x="91.5" y="504" width="231.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -302,6 +305,29 @@
                                     <action selector="forgotPass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bk3-QU-3GM"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="o5u-SG-sCB">
+                                <rect key="frame" x="52" y="378.5" width="342" height="37.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-0a-4Id">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mật Khẩu" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmz-YU-cfx">
+                                        <rect key="frame" x="0.0" y="20.5" width="342" height="17"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
@@ -310,38 +336,38 @@
                             <constraint firstItem="SeQ-YN-fDR" firstAttribute="bottom" secondItem="YTb-W4-IfN" secondAttribute="bottom" id="21N-Ye-Opf"/>
                             <constraint firstItem="oqI-o7-PnM" firstAttribute="top" secondItem="ayw-WG-e0p" secondAttribute="bottom" constant="32" id="2hf-of-s6e"/>
                             <constraint firstItem="dhk-dQ-AQ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="3eF-rP-G7n"/>
+                            <constraint firstItem="WO0-TZ-ln2" firstAttribute="top" secondItem="o5u-SG-sCB" secondAttribute="bottom" constant="8" id="45l-yS-Gee"/>
                             <constraint firstItem="Ul1-UG-14F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4PF-Uy-AVB"/>
                             <constraint firstItem="seL-IW-am8" firstAttribute="top" secondItem="2rH-8Y-IsG" secondAttribute="bottom" constant="30" id="6D9-cC-Ywc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vmz-YU-cfx" secondAttribute="trailing" constant="20" id="7Fg-4R-VWh"/>
-                            <constraint firstItem="ayw-WG-e0p" firstAttribute="top" secondItem="3D3-9a-IiV" secondAttribute="bottom" constant="-13" id="8ig-xu-jyq"/>
+                            <constraint firstItem="ayw-WG-e0p" firstAttribute="top" secondItem="84J-RS-S24" secondAttribute="bottom" constant="2" id="9XB-f4-cHp"/>
                             <constraint firstItem="wEP-LS-kax" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9YE-QY-Lmd"/>
                             <constraint firstItem="2rH-8Y-IsG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BW0-xn-eJ2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SeQ-YN-fDR" secondAttribute="trailing" constant="101" id="Cc7-lt-UVo"/>
                             <constraint firstItem="SeQ-YN-fDR" firstAttribute="top" secondItem="cQo-NI-Uqp" secondAttribute="top" id="D6z-Ip-gyj"/>
-                            <constraint firstItem="WO0-TZ-ln2" firstAttribute="top" secondItem="vmz-YU-cfx" secondAttribute="bottom" id="GS5-2a-eqc"/>
+                            <constraint firstItem="84J-RS-S24" firstAttribute="leading" secondItem="khG-jl-2mh" secondAttribute="trailing" constant="4" id="ED3-Nz-huk"/>
                             <constraint firstItem="seL-IW-am8" firstAttribute="centerY" secondItem="GH7-v1-ltf" secondAttribute="centerY" id="H1Z-1X-KWZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="84J-RS-S24" secondAttribute="trailing" constant="24" id="Ijf-8v-7DL"/>
                             <constraint firstItem="GH7-v1-ltf" firstAttribute="top" secondItem="2rH-8Y-IsG" secondAttribute="bottom" constant="30" id="IzA-T7-wB7"/>
                             <constraint firstItem="khG-jl-2mh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="KCv-xl-owK"/>
-                            <constraint firstItem="3D3-9a-IiV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="L4C-zs-de8"/>
-                            <constraint firstItem="vmz-YU-cfx" firstAttribute="top" secondItem="ayw-WG-e0p" secondAttribute="bottom" constant="28" id="MIW-4I-n5c"/>
                             <constraint firstAttribute="trailing" secondItem="WO0-TZ-ln2" secondAttribute="trailing" constant="20" id="Ob2-BK-5ET"/>
                             <constraint firstItem="SeQ-YN-fDR" firstAttribute="leading" secondItem="cQo-NI-Uqp" secondAttribute="trailing" constant="25" id="Oge-pB-x3k"/>
                             <constraint firstItem="Ul1-UG-14F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q9d-p5-eeh"/>
                             <constraint firstItem="2rH-8Y-IsG" firstAttribute="top" secondItem="dhk-dQ-AQ8" secondAttribute="bottom" constant="52" id="RIz-KK-DJp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SeQ-YN-fDR" secondAttribute="bottom" constant="10" id="U2P-sl-JMq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3D3-9a-IiV" secondAttribute="trailing" constant="34" id="Xlg-Op-dgt"/>
                             <constraint firstItem="5Nj-rE-JIh" firstAttribute="top" secondItem="ayw-WG-e0p" secondAttribute="bottom" constant="2" id="b2n-ut-VzO"/>
                             <constraint firstItem="SeQ-YN-fDR" firstAttribute="top" secondItem="YTb-W4-IfN" secondAttribute="top" id="bCB-ti-Ugx"/>
                             <constraint firstItem="oqI-o7-PnM" firstAttribute="leading" secondItem="dhk-dQ-AQ8" secondAttribute="leading" constant="2" id="dDd-Ua-gde"/>
-                            <constraint firstItem="vmz-YU-cfx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="dfC-6s-Vj3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Nj-rE-JIh" secondAttribute="trailing" constant="20" id="enp-zq-jcT"/>
+                            <constraint firstItem="o5u-SG-sCB" firstAttribute="leading" secondItem="oqI-o7-PnM" secondAttribute="trailing" constant="4" id="fJG-Ws-iFz"/>
                             <constraint firstItem="WO0-TZ-ln2" firstAttribute="top" secondItem="oqI-o7-PnM" secondAttribute="bottom" constant="4" id="gLd-s3-SG6"/>
+                            <constraint firstItem="o5u-SG-sCB" firstAttribute="top" secondItem="5Nj-rE-JIh" secondAttribute="bottom" constant="6" id="hvl-Wn-PxO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LtU-fW-7Rj" secondAttribute="trailing" constant="20" id="jJr-tC-yFJ"/>
                             <constraint firstItem="cQo-NI-Uqp" firstAttribute="leading" secondItem="YTb-W4-IfN" secondAttribute="trailing" constant="26" id="ju8-sf-olg"/>
                             <constraint firstItem="cQo-NI-Uqp" firstAttribute="centerX" secondItem="c53-q5-f72" secondAttribute="centerX" id="kcv-v5-7BN"/>
                             <constraint firstItem="dhk-dQ-AQ8" firstAttribute="top" secondItem="WO0-TZ-ln2" secondAttribute="bottom" constant="27" id="lBN-0Y-Edn"/>
                             <constraint firstItem="khG-jl-2mh" firstAttribute="bottom" secondItem="ayw-WG-e0p" secondAttribute="bottom" constant="4" id="nLB-TQ-rmz"/>
                             <constraint firstItem="GH7-v1-ltf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="nXg-K4-2Wr"/>
+                            <constraint firstItem="84J-RS-S24" firstAttribute="top" secondItem="Ul1-UG-14F" secondAttribute="bottom" constant="8" id="p7i-Xe-55l"/>
                             <constraint firstItem="c53-q5-f72" firstAttribute="top" secondItem="GH7-v1-ltf" secondAttribute="bottom" constant="52" id="plJ-2O-H1g"/>
                             <constraint firstItem="khG-jl-2mh" firstAttribute="top" secondItem="Ul1-UG-14F" secondAttribute="bottom" constant="8" id="qXv-L2-Gtm"/>
                             <constraint firstItem="Ul1-UG-14F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rEf-5l-HGK"/>
@@ -350,7 +376,7 @@
                             <constraint firstItem="c53-q5-f72" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sAG-SR-l8c"/>
                             <constraint firstItem="Ul1-UG-14F" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sd8-bM-NfZ"/>
                             <constraint firstItem="SeQ-YN-fDR" firstAttribute="bottom" secondItem="cQo-NI-Uqp" secondAttribute="bottom" id="tMI-2w-2WV"/>
-                            <constraint firstItem="3D3-9a-IiV" firstAttribute="top" secondItem="Ul1-UG-14F" secondAttribute="bottom" constant="24" id="vIJ-CY-Uk0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o5u-SG-sCB" secondAttribute="trailing" constant="20" id="vzq-hA-bnN"/>
                             <constraint firstItem="WO0-TZ-ln2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="w25-Y7-cWg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2rH-8Y-IsG" secondAttribute="trailing" constant="20" id="wVx-K0-oFL"/>
                             <constraint firstItem="ayw-WG-e0p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="wrt-vy-741"/>
@@ -364,10 +390,12 @@
                     <connections>
                         <outlet property="background" destination="Ul1-UG-14F" id="PXQ-4l-fiT"/>
                         <outlet property="btnLogin" destination="2rH-8Y-IsG" id="Gxs-Pd-eo3"/>
+                        <outlet property="pass" destination="GZA-0a-4Id" id="lJ0-y7-0kt"/>
+                        <outlet property="phone" destination="SKN-lU-Nqp" id="mx6-He-0fx"/>
                         <outlet property="txtLine" destination="WO0-TZ-ln2" id="clW-Bu-i2B"/>
                         <outlet property="txtLine2" destination="ayw-WG-e0p" id="sDb-FG-ofT"/>
-                        <outlet property="txtPass" destination="vmz-YU-cfx" id="ZwH-Wp-5Ll"/>
-                        <outlet property="txtPhone" destination="3D3-9a-IiV" id="WkZ-k8-QaY"/>
+                        <outlet property="txtPass" destination="vmz-YU-cfx" id="ss7-Yt-eJB"/>
+                        <outlet property="txtPhone" destination="3D3-9a-IiV" id="Cjm-ZZ-EFT"/>
                         <outlet property="wrongPass" destination="LtU-fW-7Rj" id="IfD-j6-7tl"/>
                         <outlet property="wrongPassAndPhone" destination="wEP-LS-kax" id="egT-cW-UJk"/>
                         <outlet property="wrongPhone" destination="5Nj-rE-JIh" id="34u-5D-oay"/>
@@ -542,6 +570,9 @@
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
