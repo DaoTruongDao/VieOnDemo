@@ -144,7 +144,11 @@ class ViewController: UIViewController , UITextFieldDelegate{
                 txtLine2.layer.borderColor = UIColor.gray.cgColor
                 txtLine2.layer.borderWidth = 1.0
                 phone.isHidden = true
+            }else if txtPhone.text != ""
+            {
+                phone.isHidden = true
             }
+            
         }
         if textField == txtPass {
             let currentText = textField.text!
@@ -158,6 +162,8 @@ class ViewController: UIViewController , UITextFieldDelegate{
                 wrongPass.isHidden = true
                 txtLine.layer.borderColor = UIColor.gray.cgColor
                 txtLine.layer.borderWidth = 1.0
+                pass.isHidden = true
+            }else if txtPass.text != ""{
                 pass.isHidden = true
             }
         }
