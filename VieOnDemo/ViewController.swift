@@ -35,6 +35,7 @@ class ViewController: UIViewController , UITextFieldDelegate{
     @IBAction func forgotPass(_ sender: Any) {
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -45,6 +46,10 @@ class ViewController: UIViewController , UITextFieldDelegate{
         wrongPassAndPhone.isHidden = true
         phone.isHidden = true
         pass.isHidden = true
+        
+        btnLogin.isEnabled = false
+        btnLogin.alpha = 0.5
+
         
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
@@ -97,14 +102,13 @@ class ViewController: UIViewController , UITextFieldDelegate{
     @IBAction func singIn_tap(_ sender: Any) {
         let myPhone = txtPhone.text!
         let myPass = txtPass.text!
-        if myPhone.count == 10 && myPass.count >= 6{
+        if myPhone.count == 10 && myPass.count >= 6 {
             if myPass == "123456" && myPhone == "0355505111" {
                 self.performSegue(withIdentifier: "loginSeque", sender: nil)
-            }else {
+            }else if myPass != "123456" || myPhone != "0355505111"{
                 wrongPassAndPhone.isHidden = false
             }
         }
-        
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         if textField == txtPhone {
@@ -112,6 +116,7 @@ class ViewController: UIViewController , UITextFieldDelegate{
             txtPhone.attributedPlaceholder = NSAttributedString(string: "vd: 0355505111",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
             txtLine2.layer.borderColor = UIColor.white.cgColor
             txtLine2.layer.borderWidth = 1.0
+            wrongPhone.isHidden = true
         }
         if textField == txtPass {
             pass.isHidden = false
@@ -119,11 +124,11 @@ class ViewController: UIViewController , UITextFieldDelegate{
             txtPass.textColor = UIColor.gray
             txtLine.layer.borderColor = UIColor.white.cgColor
             txtLine.layer.borderWidth = 1.0
+            wrongPass.isHidden = true
         }
         return true
     }
-    
-    
+
     func textFieldDidEndEditing(_ textField: UITextField){
  
         if textField == txtPhone{
@@ -143,7 +148,7 @@ class ViewController: UIViewController , UITextFieldDelegate{
         }
         if textField == txtPass {
             let currentText = textField.text!
-            if currentText.count > 20 || currentText.count < 8{
+            if currentText.count > 20 || currentText.count < 6{
                 wrongPass.isHidden = false
                 txtLine.layer.borderColor = UIColor.red.cgColor
                 txtLine.layer.borderWidth = 1.0
@@ -159,17 +164,29 @@ class ViewController: UIViewController , UITextFieldDelegate{
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-         if(textField == txtPhone){
+        if(textField == txtPhone){
             let currentText = textField.text! + string
             return currentText.count <= 10
-         }
+        }
         if textField == txtPass {
             let currentText = textField.text! + string
             return currentText.count <= 20
         }
          return true;
     }
-
+    
+    
+    @IBAction func editChanged(_ sender: Any) {
+        if txtPhone.text!.count == 10 && txtPass.text!.count >= 6{
+          btnLogin.isEnabled = true
+            btnLogin.alpha = 1.0
+            btnLogin.backgroundColor = UIColor.green
+            btnLogin.setTitleColor(.white, for: .normal)
+        } else {
+          btnLogin.isEnabled = false
+            btnLogin.alpha = 0.5
+        }
+    }
 }
 
     
