@@ -10,12 +10,12 @@ import Firebase
 import FirebaseAuth
 import SwiftUI
 
-class ViewController: UIViewController , UITextFieldDelegate{
-    
+class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDelegate,UICollectionViewDataSource{
+
     var iconClick = false
     let imageicon = UIImageView()
-    
-    
+
+    @IBOutlet weak var collectionview: UICollectionView?
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var wrongPhone: UILabel!
     @IBOutlet weak var wrongPass: UILabel!
@@ -35,38 +35,44 @@ class ViewController: UIViewController , UITextFieldDelegate{
     @IBAction func forgotPass(_ sender: Any) {
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        txtPhone.delegate = self
-        txtPass.delegate = self
-        wrongPass.isHidden = true
-        wrongPhone.isHidden = true
-        wrongPassAndPhone.isHidden = true
-        phone.isHidden = true
-        pass.isHidden = true
+        txtPhone?.delegate = self
+        txtPass?.delegate = self
+        wrongPass?.isHidden = true
+        wrongPhone?.isHidden = true
+        wrongPassAndPhone?.isHidden = true
+        phone?.isHidden = true
+        pass?.isHidden = true
         
-        btnLogin.isEnabled = false
-        btnLogin.alpha = 0.5
+        btnLogin?.isEnabled = false
+        btnLogin?.alpha = 0.5
+        
+        collectionview?.delegate = self
+        collectionview?.dataSource = self
+        collectionview?.backgroundColor = UIColor.black
+        collectionview?.tintColor = UIColor.white
 
+        
+        
         
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
-        
 
-        
         navigationController?.navigationBar.tintColor = .white
-        
-        
+    
         navigationController?.navigationBar.barStyle = .black
             
-        background.image = UIImage(named: "background")
+        background?.image = UIImage(named: "background")
     
-        txtLine.layer.borderColor = UIColor.gray.cgColor
-        txtLine.layer.borderWidth = 1.0
-        txtLine2.layer.borderColor = UIColor.gray.cgColor
-        txtLine2.layer.borderWidth = 1.0
+        txtLine?.layer.borderColor = UIColor.gray.cgColor
+        txtLine?.layer.borderWidth = 1.0
+        txtLine2?.layer.borderColor = UIColor.gray.cgColor
+        txtLine2?.layer.borderWidth = 1.0
         
         imageicon.image = UIImage(named: "hide")
         
@@ -77,8 +83,8 @@ class ViewController: UIViewController , UITextFieldDelegate{
         
         imageicon.frame = CGRect(x: -10, y: 0, width: UIImage(named: "hide")!.size.width, height: UIImage(named: "hide")!.size.height)
         
-        txtPass.rightView = contentView
-        txtPass.rightViewMode = .always
+        txtPass?.rightView = contentView
+        txtPass?.rightViewMode = .always
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer: )))        
         imageicon.isUserInteractionEnabled = true
         imageicon.addGestureRecognizer(tapGestureRecognizer)
@@ -191,7 +197,42 @@ class ViewController: UIViewController , UITextFieldDelegate{
         } else {
           btnLogin.isEnabled = false
             btnLogin.alpha = 0.5
+            btnLogin.backgroundColor = UIColor.lightGray
+            btnLogin.setTitleColor(.white, for: .normal)
+            
         }
+    }
+    let user = ["1","2","3","4","5"]
+    let image: [UIImage] = [
+        UIImage(named: "user1")!,
+        UIImage(named: "user2")!,
+        UIImage(named: "user3")!,
+        UIImage(named: "user4")!,
+        UIImage(named: "user5")!,
+    ]
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return user.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+
+        cell.userNumber.text = user[indexPath.item]
+        cell.userImage.image = image[indexPath.item]
+        
+        cell.userNumber.textColor = UIColor.white
+  
+
+        let rightButton = UIBarButtonItem(title: "Chỉnh sửa", style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = rightButton
+        let attributes: [NSAttributedString.Key : Any] = [ .font: UIFont.boldSystemFont(ofSize: 16) ]
+        rightButton.setTitleTextAttributes(attributes, for: .normal)
+        
+        navigationItem.title = "Những ai đang xem?"
+ 
+
+        return cell
     }
 }
 
