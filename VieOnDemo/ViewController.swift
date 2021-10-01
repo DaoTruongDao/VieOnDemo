@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 import SwiftUI
 
-class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDelegate,UICollectionViewDataSource{
+class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 
     var iconClick = false
     let imageicon = UIImageView()
@@ -19,15 +19,11 @@ class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDe
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var wrongPhone: UILabel!
     @IBOutlet weak var wrongPass: UILabel!
-    
     @IBOutlet weak var txtLine2: UITextField!
-    
     @IBOutlet weak var txtLine: UITextField!
-    
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var background: UIImageView!
-    
     @IBOutlet weak var txtPass: UITextField!
     @IBOutlet weak var pass: UILabel!
     @IBOutlet weak var wrongPassAndPhone: UILabel!
@@ -36,7 +32,6 @@ class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDe
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
     
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,22 +46,22 @@ class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDe
         
         btnLogin?.isEnabled = false
         btnLogin?.alpha = 0.5
-        
+
         collectionview?.delegate = self
         collectionview?.dataSource = self
+    
         collectionview?.backgroundColor = UIColor.black
         collectionview?.tintColor = UIColor.white
 
         
-        
-        
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
 
-        navigationController?.navigationBar.tintColor = .white
-    
-        navigationController?.navigationBar.barStyle = .black
-            
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.barStyle = .black
+        
         background?.image = UIImage(named: "background")
     
         txtLine?.layer.borderColor = UIColor.gray.cgColor
@@ -140,6 +135,7 @@ class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDe
         if textField == txtPhone{
             let currentText = textField.text!
             if currentText.count < 10 {
+                
                 wrongPhone.isHidden = false
                 txtLine2.layer.borderColor = UIColor.red.cgColor
                 txtLine2.layer.borderWidth = 1.0
@@ -214,6 +210,9 @@ class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return user.count
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
@@ -222,7 +221,8 @@ class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDe
         cell.userImage.image = image[indexPath.item]
         
         cell.userNumber.textColor = UIColor.white
-  
+        
+        
 
         let rightButton = UIBarButtonItem(title: "Chỉnh sửa", style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = rightButton
@@ -230,10 +230,31 @@ class ViewController: UIViewController , UITextFieldDelegate, UICollectionViewDe
         rightButton.setTitleTextAttributes(attributes, for: .normal)
         
         navigationItem.title = "Những ai đang xem?"
- 
-
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        //return itemSize
+        let screenWidth = UIScreen.main.bounds.size.width
+        if indexPath.row == user.count-1 {
+          // check if last cell is odd
+          if user.count % 2  == 1 {
+            return CGSize(width: screenWidth , height: 176) // all Width and  same previous height
+          }else {
+            return CGSize(width: 150, height: 176)
+          }
+        }else{
+          return CGSize(width: 150, height: 176)
+            
+        }
+      }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 50, left: 20, bottom: 0, right: 0)
+    }
+    
+
 }
 
     
