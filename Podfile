@@ -9,7 +9,9 @@ target 'VieOnDemo' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-
+  pod 'Alamofire', '~> 5.4'
+  pod 'ObjectMapper', '~> 3.5'
+  
   target 'VieOnDemoTests' do
     inherit! :search_paths
     # Pods for testingss
