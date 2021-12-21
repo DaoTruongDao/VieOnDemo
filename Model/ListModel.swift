@@ -64,7 +64,7 @@ class ItemModel: Mappable {
     var label_public_day: String?
     var link_play: linkplayModel?
     var release_year: Int?
-    var tags_display: String?
+    var tags_display: [String]?
     var ranking: Int?
     var runtime: Int?
     var external_url: String?

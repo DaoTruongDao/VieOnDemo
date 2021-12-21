@@ -44,4 +44,34 @@ extension APIPortal {
         }
         return request
     }
+    
+    
+    
+    func requestApiWithDelegate(url: URL,
+                        menthodApi: HTTPMethod = HTTPMethod.get,
+                        parameters: [String: Any]? = nil,
+                        encoding: ParameterEncoding = JSONEncoding.default,
+                        header: HTTPHeaders?)
+                         -> Request {
+        print( "<=================New Request=======================>")
+        print( "URL: " + url.absoluteString)
+        print("Parameters: " + "\(String(describing: parameters))")
+        
+        let manager =  Alamofire.Session.default
+        manager.session.configuration.timeoutIntervalForRequest = 60
+        let request = manager.request(url, method: menthodApi, parameters: parameters, encoding: encoding, headers: header)
+        
+        if let sts = response.response?.statusCode{
+            print( "<=================Response=======================>")
+            print("Response status CODE: ", sts, " - URL", url)
+            if sts == 200 {
+                
+                print(response.value ?? "")
+                
+            }else{
+                print("Error")
+            }
+        }
+        return request
+    }
 }

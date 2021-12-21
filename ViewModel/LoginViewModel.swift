@@ -6,13 +6,22 @@
 //
 import Foundation
 import UIKit
-
+protocol ListDelegate: AnyObject{
+    func listData(data: ListModel)
+}
 class LoginViewModel {
     weak var delegate: ViewModelDelegate?
+    weak var delagateList: ListDelegate?
     var lis: ListModel?
-    init(delegate: ViewModelDelegate? = nil) {
-        self.delegate = delegate
+//    init(delegate: ViewModelDelegate? = nil) {
+//        self.delegate = delegate
+//    }
+//
+    func list(){
+        APIPortal.shared.list()
+        delagateList?.listData(data: lis!)
     }
+    
     
     func loginAccount(phone: String, pass: String) {
         APIPortal.shared.login(phone: phone, pass: pass) { (loginResponse) in
@@ -30,17 +39,17 @@ class LoginViewModel {
         }
 
     }
-
-    func list(complete: (() -> Void)?){
-        APIPortal.shared.list { (listReponse) in
-            print("Success", listReponse)
-            self.lis = listReponse
-            complete?()
-        } failure: {
-
-        }
-
-    }
     
+//
+//    func list(complete: (() -> Void)?){
+//        APIPortal.shared.list { (listReponse) in
+//            print("Success", listReponse)
+//            self.lis = listReponse
+//            complete?()
+//        } failure: {
+//
+//        }
+//
+//    }
     
 }

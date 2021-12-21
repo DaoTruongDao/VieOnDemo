@@ -11,12 +11,10 @@ import Alamofire
 import ObjectMapper
 
 // MARK: - Headers
-extension APIPortal {
-    
-}
+
 class APIPortal: NSObject {
     static let shared = APIPortal()
-    func product( complete: ((VotingModel) -> Void)?, failure: (() -> Void)? ) {
+    func product( complete: ((ProductModel) -> Void)?, failure: (() -> Void)? ) {
         if let url = URL.init(string: "https://testing-game-api.vieon.vn/voting/1/option_chart?platform=ios&ui=012021") {
             _ = self.requestApiWith(url: url,
                                     menthodApi: .get,
@@ -26,9 +24,9 @@ class APIPortal: NSObject {
                                     complete: {(json) in
                                         let model = VotingModel.init(JSONString: json)
                                         
-            }, fail: {
-                print("fail")
-            })
+                                    }, fail: {
+                                        print("fail")
+                                    })
         }
     }
 }
@@ -39,7 +37,7 @@ extension APIPortal{
         var sKey: String
         var sValue: String
     }
-        
+    
     func login(phone: String, pass: String, complete: ((LoginModel) -> Void)?, failure: ((ResponseObjects) -> Void)? ) {
         var bodyKeyValue = [RequestBodyFormDataKeyValue]()
         bodyKeyValue.append(RequestBodyFormDataKeyValue(sKey: "phone_number", sValue: phone))
@@ -80,37 +78,47 @@ extension APIPortal{
                 reponseData = response.data! as NSData
                 var iDataLength = reponseData.length
                 print("Size :\(iDataLength) bytes")
-//                print("reponse Time:\(reponse.metrics?)")
+                //                print("reponse Time:\(reponse.metrics?)")
             }
         }
     }
 }
 
-
 extension APIPortal{
- func list(complete: ((ListModel) -> Void)?, failure: (() -> Void)? ) {
+    func list() {
+      if let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/ribbon/d0ce2475-5ffe-4892-b0d1-15e0fe0fdbef?limit=10&page=0&platform=ios&ui=012021"){
 
-    let param = ["limit": 10, "page": 0, "platform": "ios", "ui": 012021] as [String: Any]
-    if let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/ribbon/d0ce2475-5ffe-4892-b0d1-15e0fe0fdbef?limit=10&page=0&platform=ios&ui=012021") {
-        _ = self.requestApiWith(url: url,
-                                menthodApi: .get,
-                                parameters: param,
-                                encoding: URLEncoding.default,
-                                header: ["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMxMDE0NTksImp0aSI6ImIxZTkzZGY5YzU5MmU2Mjc1YjQwNGRhMTE3ZjRkMTZiIiwiYXVkIjoiIiwiaWF0IjoxNjMwNTA5NDU5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTYzMDUwOTQ1OCwic3ViIjoiYW5vbnltb3VzXzFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5Iiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5IiwidWEiOiJWaWVPTiUyMFN0YWdpbmcvMjEwNjI0MDAgQ0ZOZXR3b3JrLzk3OC4wLjcgRGFyd2luLzE4LjcuMCIsImR0IjoiaW9zIiwibXRoIjoiYW5vbnltb3VzX2xvZ2luIiwibWQiOiJpUGhvbmUgOCIsImlzcHJlIjowLCJ2ZXJzaW9uIjoiIn0.bo8Uhy0QTpq5iWMT7DUXA63GNuIrL9NljihC5oBxU3Y"],
-                                complete: {(json) in
-                             
-                                    
-                                    if let model = ListModel.init(JSONString: json){
-                                        complete?(model)
-                                        
-                                    }
-        }, fail: {
-            print("fail")
-        })
+        _ = self.requestApiWithDelegate(url: url, menthodApi: .get, parameters: nil, encoding: URLEncoding.default, header:["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMxMDE0NTksImp0aSI6ImIxZTkzZGY5YzU5MmU2Mjc1YjQwNGRhMTE3ZjRkMTZiIiwiYXVkIjoiIiwiaWF0IjoxNjMwNTA5NDU5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTYzMDUwOTQ1OCwic3ViIjoiYW5vbnltb3VzXzFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5Iiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5IiwidWEiOiJWaWVPTiUyMFN0YWdpbmcvMjEwNjI0MDAgQ0ZOZXR3b3JrLzk3OC4wLjcgRGFyd2luLzE4LjcuMCIsImR0IjoiaW9zIiwibXRoIjoiYW5vbnltb3VzX2xvZ2luIiwibWQiOiJpUGhvbmUgOCIsImlzcHJlIjowLCJ2ZXJzaW9uIjoiIn0.bo8Uhy0QTpq5iWMT7DUXA63GNuIrL9NljihC5oBxU3Y"])
+//        let model = ListModel.init(JSONString: json)
+        
+        }
+        
     }
 }
-
-
+//extension APIPortal{
+//    func list(complete: ((ListModel) -> Void)?, failure: (() -> Void)?) {
+//
+//        let param = ["limit": 10, "page": 0, "platform": "ios", "ui": 012021] as [String: Any]
+//        if let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/ribbon/d0ce2475-5ffe-4892-b0d1-15e0fe0fdbef?limit=10&page=0&platform=ios&ui=012021") {
+//            _ = self.requestApiWith(url: url,
+//                                    menthodApi: .get,
+//                                    parameters: param,
+//                                    encoding: URLEncoding.default,
+//                                    header: ["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMxMDE0NTksImp0aSI6ImIxZTkzZGY5YzU5MmU2Mjc1YjQwNGRhMTE3ZjRkMTZiIiwiYXVkIjoiIiwiaWF0IjoxNjMwNTA5NDU5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTYzMDUwOTQ1OCwic3ViIjoiYW5vbnltb3VzXzFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5Iiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5IiwidWEiOiJWaWVPTiUyMFN0YWdpbmcvMjEwNjI0MDAgQ0ZOZXR3b3JrLzk3OC4wLjcgRGFyd2luLzE4LjcuMCIsImR0IjoiaW9zIiwibXRoIjoiYW5vbnltb3VzX2xvZ2luIiwibWQiOiJpUGhvbmUgOCIsImlzcHJlIjowLCJ2ZXJzaW9uIjoiIn0.bo8Uhy0QTpq5iWMT7DUXA63GNuIrL9NljihC5oBxU3Y"],
+//
+//                                    complete: {(json) in
+//
+//
+////                                        if let model = ListModel.init(JSONString: json){
+////                                            complete?(model)
+////
+////                                        }
+//                                    }, fail: {
+//                                        print("fail")
+//                                    })
+//        }
+//    }
+//}
 // MARK: - API Login - logout
 //extension APIPortal {
 //
@@ -801,4 +809,4 @@ extension APIPortal{
 //    }
 
 
-}
+//}
