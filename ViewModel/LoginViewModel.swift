@@ -7,29 +7,20 @@
 import Foundation
 import UIKit
 
-
-protocol LoginViewModelDelegate {
-    func callLoginData(phone: String, pass: String)
+protocol LoginDelegate: AnyObject{
+    func loginData(data: LoginModel)
 }
 
-class LoginViewModel: LoginViewModelDelegate, LoginDelegate{
-   
-    var loginService = LoginService()
-    var delegate: LoginDelegate?
+class LoginViewModel{
+ 
+    weak var delegate: LoginDelegate?
     var loginModel: LoginModel?
     
+    func loginUser(phone: String, pass: String){
+        LoginService.shared.login(phone: phone, pass: pass)
 
-    func loginData(data: LoginModel) {
-        self.loginModel = data
     }
     
-    func callLoginData(phone: String, pass: String) {
-        
-        loginService.login(phone: phone, pass: pass)
-        loginService.delegate = self
-        print("Success",loginModel?.isFirstLogin)
-        
-    }
 }
 
 //    weak var delegate: ViewModelDelegate?

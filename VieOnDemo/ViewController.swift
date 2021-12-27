@@ -90,7 +90,7 @@ class ViewController: UIViewController,
         imageicon.isUserInteractionEnabled = true
         imageicon.addGestureRecognizer(tapGestureRecognizer)
         
-        
+        viewModel.delegate = self
         
     }
 
@@ -113,11 +113,13 @@ class ViewController: UIViewController,
         let myPhone = txtPhone.text!
         let myPass = txtPass.text!
         if myPhone.count == 10 && myPass.count >= 6 {
-//            viewModel.loginAccount(phone: myPhone, pass: myPass)
-            viewModel.callLoginData(phone: myPhone, pass: myPass)
-            self.performSegue(withIdentifier: "loginSeque", sender: nil)
-          
-            
+
+            viewModel.loginUser(phone: myPhone, pass: myPass)
+            if myPhone == "0908100196" && myPass == "123456" {
+                self.performSegue(withIdentifier: "loginSeque", sender: nil)
+            }else{
+                print("Error")
+            }
         }else {
             wrongPassAndPhone.isHidden = false
         }
@@ -211,64 +213,12 @@ class ViewController: UIViewController,
             
         }
     }
-    //    let user = ["1","2","3","4","5"]
-    //    let image: [UIImage] = [
-    //        UIImage(named: "user1")!,
-    //        UIImage(named: "user2")!,
-    //        UIImage(named: "user3")!,
-    //        UIImage(named: "user4")!,
-    //        UIImage(named: "user5")!,
-    //    ]
-    //
-    
-    
-    //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //        return image.count
-    //    }
-    
-    //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-    ////        cell.userNumber.text = user[indexPath.item]
-    ////        cell.userImage.image = image[indexPath.item]
-    //
-    ////        cell.userNumber.textColor = UIColor.white
-    ////        let rightButton = UIBarButtonItem(title: "Chỉnh sửa", style: .plain, target: self, action: nil)
-    ////        navigationItem.rightBarButtonItem = rightButton
-    ////        let attributes: [NSAttributedString.Key : Any] = [ .font: UIFont.boldSystemFont(ofSize: 16) ]
-    ////        rightButton.setTitleTextAttributes(attributes, for: .normal)
-    //
-    //        navigationItem.title = "Bộ Sưu tập LK"
-    //
-    //        return cell
-    //    }
-    //
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //
-    //        //return itemSize
-    //        let screenWidth = UIScreen.main.bounds.width-10
-    //        if indexPath.row == user.count-1 {
-    //          // check if last cell is odd
-    //          if user.count % 2  == 1 {
-    //            return CGSize(width: screenWidth , height: 176) // all Width and  same previous height
-    //          }else {
-    //            return CGSize(width: 150, height: 176)
-    //          }
-    //        }else{
-    //          return CGSize(width: 150, height: 176)
-    //
-    //        }
-    //      }
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    //            return 5
-    //        }
-    //
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    //            return 5
-    //    }
-    //
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    //        return UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
-    //    }
+}
+extension ViewController: LoginDelegate{
+    func loginData(data: LoginModel) {
+        guard let data = login else {return}
+        self.login = data
+    }
 }
 
 

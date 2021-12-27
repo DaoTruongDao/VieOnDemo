@@ -9,10 +9,6 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-protocol LoginDelegate: AnyObject{
-    func loginData(data: LoginModel)
-}
-
 
 struct RequestBodyFormDataKeyValue {
         var sKey: String
@@ -49,22 +45,24 @@ class LoginService{
                 reponseString = ""
                 if response.data != nil  {
                     reponseString = String(bytes: response.data!, encoding: .utf8)
+                   
                 }
                 else{
                     reponseString = response.response?.description
                 }
-
+                let model = LoginModel.init(JSONString: reponseString)
+                self.delegate?.loginData(data: model!)
                 print(reponseString ?? "")
-                let mode = LoginModel.init(JSONString: reponseString)
-                self.delegate?.loginData(data: mode!)
                 print(response.response?.statusCode)
                 var reponseData : NSData!
                 reponseData = response.data! as NSData
                 var iDataLength = reponseData.length
                 print("Size :\(iDataLength) bytes")
-
+               
+               
             }
         }
+        
     }
 
 }

@@ -35,7 +35,7 @@ class APIPortal: NSObject {
                             // delegate success here
                             let mode = LoginModel.init(JSONString: response.value!)
 
-//                            self.delegate?.loginData(data: mode!)
+                            self.delegate?.loginData(data: mode!)
 
                         }else{
         //                    fail()
