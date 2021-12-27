@@ -10,94 +10,155 @@ import UIKit
 import Alamofire
 import ObjectMapper
 
-// MARK: - Headers
 
 class APIPortal: NSObject {
+    var delegate: LoginDelegate?
     static let shared = APIPortal()
-    func product( complete: ((ProductModel) -> Void)?, failure: (() -> Void)? ) {
-        if let url = URL.init(string: "https://testing-game-api.vieon.vn/voting/1/option_chart?platform=ios&ui=012021") {
-            _ = self.requestApiWith(url: url,
-                                    menthodApi: .get,
-                                    parameters: nil,
-                                    encoding: URLEncoding.default,
-                                    header: ["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMxMDE0NTksImp0aSI6ImIxZTkzZGY5YzU5MmU2Mjc1YjQwNGRhMTE3ZjRkMTZiIiwiYXVkIjoiIiwiaWF0IjoxNjMwNTA5NDU5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTYzMDUwOTQ1OCwic3ViIjoiYW5vbnltb3VzXzFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5Iiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5IiwidWEiOiJWaWVPTiUyMFN0YWdpbmcvMjEwNjI0MDAgQ0ZOZXR3b3JrLzk3OC4wLjcgRGFyd2luLzE4LjcuMCIsImR0IjoiaW9zIiwibXRoIjoiYW5vbnltb3VzX2xvZ2luIiwibWQiOiJpUGhvbmUgOCIsImlzcHJlIjowLCJ2ZXJzaW9uIjoiIn0.bo8Uhy0QTpq5iWMT7DUXA63GNuIrL9NljihC5oBxU3Y"],
-                                    complete: {(json) in
-                                        let model = VotingModel.init(JSONString: json)
-                                        
-                                    }, fail: {
-                                        print("fail")
-                                    })
-        }
-    }
-}
+    func requestApiWithDelegate(url: URL,
+                                menthodApi: HTTPMethod = HTTPMethod.post,
+                                parameters: [String: Any]? = nil,
+                                encoding: ParameterEncoding = JSONEncoding.default,
+                                header: HTTPHeaders? ) -> Request {
+                print( "<=================New Request=======================>")
+                print( "URL: " + url.absoluteString)
+                print("Parameters: " + "\(String(describing: parameters))")
+                
+                let manager =  Alamofire.Session.default
+                manager.session.configuration.timeoutIntervalForRequest = 60
+                let request = manager.request(url, method: menthodApi, parameters: parameters, encoding: encoding, headers: header)
+                request.responseString { (response) in
+                    
+                    if let sts = response.response?.statusCode {
+                        print( "<=================Response=======================>")
+                        print("Response status CODE: ", sts, " - URL", url)
+                        if sts == 200 {
+                            // delegate success here
+                            let mode = LoginModel.init(JSONString: response.value!)
 
+//                            self.delegate?.loginData(data: mode!)
 
-extension APIPortal{
-    struct RequestBodyFormDataKeyValue {
-        var sKey: String
-        var sValue: String
-    }
-    
-    func login(phone: String, pass: String, complete: ((LoginModel) -> Void)?, failure: ((ResponseObjects) -> Void)? ) {
-        var bodyKeyValue = [RequestBodyFormDataKeyValue]()
-        bodyKeyValue.append(RequestBodyFormDataKeyValue(sKey: "phone_number", sValue: phone))
-        bodyKeyValue.append(RequestBodyFormDataKeyValue(sKey: "password", sValue: pass))
+                        }else{
+        //                    fail()
+                            // delegate fail here
+                            print("ERROR")
+                        }
+                    }
+                    
+                }
+                return request
+            }
+
+    func requestApiWith(url: URL,
+                        menthodApi: HTTPMethod = HTTPMethod.get,
+                        parameters: [String: Any]? = nil,
+                        encoding: ParameterEncoding = JSONEncoding.default,
+                        header: HTTPHeaders?,
+                        complete: @escaping (String) -> Void,
+                        fail: @escaping () -> Void ) -> Request {
+        print( "<=================New Request=======================>")
+        print( "URL: " + url.absoluteString)
+        print("Parameters: " + "\(String(describing: parameters))")
         
-        var sURL : String!
-        sURL = "https://testing-api.vieon.vn/backend/user/login/mobile"
-        let serializer = DataResponseSerializer(emptyRequestMethods: Set(minimumCapacity: 200))
-        
-        var sampleRequest = URLRequest(url: URL(string: sURL)!)
-        sampleRequest.httpMethod = HTTPMethod.post.rawValue
-        
-        AF.upload(multipartFormData: { multipartFormData in
-            for  formData in bodyKeyValue
-            {
-                multipartFormData.append(Data(formData.sValue.utf8), withName:  formData.sKey)
+        let manager =  Alamofire.Session.default
+        manager.session.configuration.timeoutIntervalForRequest = 60
+        let request = manager.request(url, method: menthodApi, parameters: parameters, encoding: encoding, headers: header)
+        //
+        request.responseString { (response) in
+            
+            if let sts = response.response?.statusCode {
+                print( "<=================Response=======================>")
+                print("Response status CODE: ", sts, " - URL", url)
+                if sts == 200 {
+                    
+                    complete(response.value ?? "")
+                    
+                }else{
+                    fail()
+                }
             }
             
-        }, to: sURL,method: .post)
-        .uploadProgress{progress in
-            print(CGFloat(progress.fractionCompleted))
         }
-        .response{response in
-            if(response.error == nil){
-                var reponseString : String!
-                reponseString = ""
-                if response.data != nil  {
-                    reponseString = String(bytes: response.data!, encoding: .utf8)
-                }
-                else{
-                    reponseString = response.response?.description
-                }
-                
-                print(reponseString ?? "")
-                print(response.response?.statusCode)
-                
-                var reponseData : NSData!
-                reponseData = response.data! as NSData
-                var iDataLength = reponseData.length
-                print("Size :\(iDataLength) bytes")
-                //                print("reponse Time:\(reponse.metrics?)")
-            }
-        }
+        return request
     }
 }
+// MARK: - Headers
 
-extension APIPortal{
-    func list() {
-      if let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/ribbon/d0ce2475-5ffe-4892-b0d1-15e0fe0fdbef?limit=10&page=0&platform=ios&ui=012021"){
-
-        _ = self.requestApiWithDelegate(url: url, menthodApi: .get, parameters: nil, encoding: URLEncoding.default, header:["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMxMDE0NTksImp0aSI6ImIxZTkzZGY5YzU5MmU2Mjc1YjQwNGRhMTE3ZjRkMTZiIiwiYXVkIjoiIiwiaWF0IjoxNjMwNTA5NDU5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTYzMDUwOTQ1OCwic3ViIjoiYW5vbnltb3VzXzFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5Iiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5IiwidWEiOiJWaWVPTiUyMFN0YWdpbmcvMjEwNjI0MDAgQ0ZOZXR3b3JrLzk3OC4wLjcgRGFyd2luLzE4LjcuMCIsImR0IjoiaW9zIiwibXRoIjoiYW5vbnltb3VzX2xvZ2luIiwibWQiOiJpUGhvbmUgOCIsImlzcHJlIjowLCJ2ZXJzaW9uIjoiIn0.bo8Uhy0QTpq5iWMT7DUXA63GNuIrL9NljihC5oBxU3Y"])
-//        let model = ListModel.init(JSONString: json)
-        
-        }
-        
-    }
-}
+//class APIPortal: NSObject {
+//
+//    static let shared = APIPortal()
+//    func product( complete: ((ProductModel) -> Void)?, failure: (() -> Void)? ) {
+//        if let url = URL.init(string: "https://testing-game-api.vieon.vn/voting/1/option_chart?platform=ios&ui=012021") {
+//            _ = self.requestApiWith(url: url,
+//                                    menthodApi: .get,
+//                                    parameters: nil,
+//                                    encoding: URLEncoding.default,
+//                                    header: ["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMxMDE0NTksImp0aSI6ImIxZTkzZGY5YzU5MmU2Mjc1YjQwNGRhMTE3ZjRkMTZiIiwiYXVkIjoiIiwiaWF0IjoxNjMwNTA5NDU5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTYzMDUwOTQ1OCwic3ViIjoiYW5vbnltb3VzXzFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5Iiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5IiwidWEiOiJWaWVPTiUyMFN0YWdpbmcvMjEwNjI0MDAgQ0ZOZXR3b3JrLzk3OC4wLjcgRGFyd2luLzE4LjcuMCIsImR0IjoiaW9zIiwibXRoIjoiYW5vbnltb3VzX2xvZ2luIiwibWQiOiJpUGhvbmUgOCIsImlzcHJlIjowLCJ2ZXJzaW9uIjoiIn0.bo8Uhy0QTpq5iWMT7DUXA63GNuIrL9NljihC5oBxU3Y"],
+//                                    complete: {(json) in
+//                                        let model = VotingModel.init(JSONString: json)
+//
+//                                    }, fail: {
+//                                        print("fail")
+//                                    })
+//        }
+//    }
+//}
+//
+//
+//extension APIPortal{
+//    struct RequestBodyFormDataKeyValue {
+//        var sKey: String
+//        var sValue: String
+//    }
+//
+//    func login(phone: String, pass: String, complete: ((LoginModel) -> Void)?, failure: ((ResponseObjects) -> Void)? ) {
+//        var bodyKeyValue = [RequestBodyFormDataKeyValue]()
+//        bodyKeyValue.append(RequestBodyFormDataKeyValue(sKey: "phone_number", sValue: phone))
+//        bodyKeyValue.append(RequestBodyFormDataKeyValue(sKey: "password", sValue: pass))
+//
+//        var sURL : String!
+//        sURL = "https://testing-api.vieon.vn/backend/user/login/mobile"
+//        let serializer = DataResponseSerializer(emptyRequestMethods: Set(minimumCapacity: 200))
+//
+//        var sampleRequest = URLRequest(url: URL(string: sURL)!)
+//        sampleRequest.httpMethod = HTTPMethod.post.rawValue
+//
+//        AF.upload(multipartFormData: { multipartFormData in
+//            for  formData in bodyKeyValue
+//            {
+//                multipartFormData.append(Data(formData.sValue.utf8), withName:  formData.sKey)
+//            }
+//
+//        }, to: sURL,method: .post)
+//        .uploadProgress{progress in
+//            print(CGFloat(progress.fractionCompleted))
+//        }
+//        .response{response in
+//            if(response.error == nil){
+//                var reponseString : String!
+//                reponseString = ""
+//                if response.data != nil  {
+//                    reponseString = String(bytes: response.data!, encoding: .utf8)
+//                }
+//                else{
+//                    reponseString = response.response?.description
+//                }
+//
+//                print(reponseString ?? "")
+//                print(response.response?.statusCode)
+//
+//                var reponseData : NSData!
+//                reponseData = response.data! as NSData
+//                var iDataLength = reponseData.length
+//                print("Size :\(iDataLength) bytes")
+//                //                print("reponse Time:\(reponse.metrics?)")
+//            }
+//        }
+//    }
+//}
+//
+//
 //extension APIPortal{
 //    func list(complete: ((ListModel) -> Void)?, failure: (() -> Void)?) {
-//
 //        let param = ["limit": 10, "page": 0, "platform": "ios", "ui": 012021] as [String: Any]
 //        if let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/ribbon/d0ce2475-5ffe-4892-b0d1-15e0fe0fdbef?limit=10&page=0&platform=ios&ui=012021") {
 //            _ = self.requestApiWith(url: url,
@@ -109,16 +170,32 @@ extension APIPortal{
 //                                    complete: {(json) in
 //
 //
-////                                        if let model = ListModel.init(JSONString: json){
-////                                            complete?(model)
-////
-////                                        }
+//                                        if let model = ListModel.init(JSONString: json){
+//                                            complete?(model)
+//
+//                                        }
 //                                    }, fail: {
 //                                        print("fail")
 //                                    })
 //        }
 //    }
 //}
+//
+//extension APIPortal{
+//    func list(){
+//        let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/ribbon/d0ce2475-5ffe-4892-b0d1-15e0fe0fdbef?limit=10&page=0&platform=ios&ui=012021")
+//
+//        Alamofire.Session.default.request(url!, method: .get, encoding: JSONEncoding.default, headers: ["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzMxMDE0NTksImp0aSI6ImIxZTkzZGY5YzU5MmU2Mjc1YjQwNGRhMTE3ZjRkMTZiIiwiYXVkIjoiIiwiaWF0IjoxNjMwNTA5NDU5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTYzMDUwOTQ1OCwic3ViIjoiYW5vbnltb3VzXzFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5Iiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjFDODNCRDQ0LUQ4RjYtNDM1QS1CQjZDLUNBNzlGREU3MDFGNi1kNTMxZDRkMjYzMmVmOTgyM2U0ZTI1MjBmOGU0NGY5NC0xNjMwNTA5NDU5IiwidWEiOiJWaWVPTiUyMFN0YWdpbmcvMjEwNjI0MDAgQ0ZOZXR3b3JrLzk3OC4wLjcgRGFyd2luLzE4LjcuMCIsImR0IjoiaW9zIiwibXRoIjoiYW5vbnltb3VzX2xvZ2luIiwibWQiOiJpUGhvbmUgOCIsImlzcHJlIjowLCJ2ZXJzaW9uIjoiIn0.bo8Uhy0QTpq5iWMT7DUXA63GNuIrL9NljihC5oBxU3Y"]).responseString { (response) in
+//            let mode = ListModel.init(JSONString: response.value!)
+//            print("mode")
+//
+//
+//        }
+//    }
+//}
+
+
+        
 // MARK: - API Login - logout
 //extension APIPortal {
 //
@@ -810,3 +887,4 @@ extension APIPortal{
 
 
 //}
+

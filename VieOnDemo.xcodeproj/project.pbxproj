@@ -14,6 +14,7 @@
 		6628995626A6746B0070D4B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6628995426A6746B0070D4B6 /* LaunchScreen.storyboard */; };
 		6628996126A6746C0070D4B6 /* VieOnDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628996026A6746C0070D4B6 /* VieOnDemoTests.swift */; };
 		6628996C26A6746C0070D4B6 /* VieOnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628996B26A6746C0070D4B6 /* VieOnDemoUITests.swift */; };
+		6648DE2727742DBF0045ADDE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6648DE2627742DBF0045ADDE /* LoginService.swift */; };
 		664F305726CF812C0005C31B /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664F305626CF812C0005C31B /* ForgotPassViewController.swift */; };
 		664F305C26CF8C140005C31B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 664F305B26CF8C140005C31B /* GoogleService-Info.plist */; };
 		666B6B3627572EEB00A46F32 /* APIPortal+ExtensionsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */; };
@@ -69,6 +70,7 @@
 		6628996726A6746C0070D4B6 /* VieOnDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VieOnDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6628996B26A6746C0070D4B6 /* VieOnDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VieOnDemoUITests.swift; sourceTree = "<group>"; };
 		6628996D26A6746C0070D4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6648DE2627742DBF0045ADDE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		664F305626CF812C0005C31B /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		664F305B26CF8C140005C31B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIPortal+ExtensionsBase.swift"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				666B6B4227572F6200A46F32 /* BaseItem.swift */,
 				666B6B3D27572F0A00A46F32 /* APIPortal.swift */,
 				666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */,
+				6648DE2627742DBF0045ADDE /* LoginService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6648DE2727742DBF0045ADDE /* LoginService.swift in Sources */,
 				664F305726CF812C0005C31B /* ForgotPassViewController.swift in Sources */,
 				666B6B7027576A5600A46F32 /* ViewModelDelegate.swift in Sources */,
 				661C8285277173A400221D9D /* DetailList.swift in Sources */,

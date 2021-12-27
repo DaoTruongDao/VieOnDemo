@@ -6,40 +6,55 @@
 //
 import Foundation
 import UIKit
-protocol ListDelegate: AnyObject{
-    func listData(data: ListModel)
+
+
+protocol LoginViewModelDelegate {
+    func callLoginData(phone: String, pass: String)
 }
-class LoginViewModel {
-    weak var delegate: ViewModelDelegate?
-    weak var delagateList: ListDelegate?
-    var lis: ListModel?
+
+class LoginViewModel: LoginViewModelDelegate, LoginDelegate{
+   
+    var loginService = LoginService()
+    var delegate: LoginDelegate?
+    var loginModel: LoginModel?
+    
+
+    func loginData(data: LoginModel) {
+        self.loginModel = data
+    }
+    
+    func callLoginData(phone: String, pass: String) {
+        
+        loginService.login(phone: phone, pass: pass)
+        loginService.delegate = self
+        print("Success",loginModel?.isFirstLogin)
+        
+    }
+}
+
+//    weak var delegate: ViewModelDelegate?
+//    weak var delegateList: ListDelegate?
+    
 //    init(delegate: ViewModelDelegate? = nil) {
 //        self.delegate = delegate
 //    }
-//
-    func list(){
-        APIPortal.shared.list()
-        delagateList?.listData(data: lis!)
-    }
-    
-    
-    func loginAccount(phone: String, pass: String) {
-        APIPortal.shared.login(phone: phone, pass: pass) { (loginResponse) in
-            print("Success", loginResponse)
-        } failure: { (wrong) in
-            
-        }
-    }
-    func product(){
-        
-        APIPortal.shared.product { (productResponse) in
-            print("Success", productResponse)
-        } failure: {
-            
-        }
 
-    }
-    
+//    func loginAccount(phone: String, pass: String) {
+//        APIPortal.shared.login(phone: phone, pass: pass) { (loginResponse) in
+//            print("Success", loginResponse)
+//        } failure: { (wrong) in
+//
+//        }
+//    }
+//    func product(){
+//
+//        APIPortal.shared.product { (productResponse) in
+//            print("Success", productResponse)
+//        } failure: {
+//
+//        }
+//
+//    }
 //
 //    func list(complete: (() -> Void)?){
 //        APIPortal.shared.list { (listReponse) in
@@ -52,4 +67,3 @@ class LoginViewModel {
 //
 //    }
     
-}

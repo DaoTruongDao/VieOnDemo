@@ -12,11 +12,8 @@ import ObjectMapper
 import Alamofire
 
 
-class ListController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,SenData, ListDelegate{
-    func listData(data: ListModel){
-        print(data)
-    }
-    
+class ListController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,SenData{
+
     func messageData(data: String) {
         print("Success", data)
     }
@@ -37,14 +34,17 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //            self.collectionview?.reloadData()
 //            print(self.lis)
 //        }
-//        viewMode.list()
+        
+ 
+        
+        
         collectionview?.delegate = self
         collectionview?.dataSource = self
         
         
   
     }
-    
+
     var lis: [ItemModel] = []
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -140,7 +140,6 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 12, left: 16, bottom: 10, right: 8)
     }
-  
-  
+
     
 }

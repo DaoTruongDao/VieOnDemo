@@ -13,16 +13,15 @@ import ObjectMapper
 import Alamofire
 
 class ViewController: UIViewController,
-                      UITextFieldDelegate
-{
-    
+                      UITextFieldDelegate{
+   
     
     
     var iconClick = false
     let imageicon = UIImageView()
     
     var viewModel = LoginViewModel.init()
-    
+   
     
     
     @IBOutlet weak var phone: UILabel!
@@ -41,7 +40,9 @@ class ViewController: UIViewController,
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
     
+    var login: LoginModel?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -56,7 +57,8 @@ class ViewController: UIViewController,
         btnLogin?.isEnabled = false
         btnLogin?.alpha = 0.5
         
-        
+
+     
         
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
@@ -87,9 +89,11 @@ class ViewController: UIViewController,
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer: )))        
         imageicon.isUserInteractionEnabled = true
         imageicon.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        
     }
-    
-    
+
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         if iconClick {
@@ -103,21 +107,23 @@ class ViewController: UIViewController,
             txtPass.isSecureTextEntry = true
         }
     }
-    
+
     @IBAction func singIn_tap(_ sender: Any) {
         
         let myPhone = txtPhone.text!
         let myPass = txtPass.text!
         if myPhone.count == 10 && myPass.count >= 6 {
-            viewModel.loginAccount(phone: myPhone, pass: myPass)
+//            viewModel.loginAccount(phone: myPhone, pass: myPass)
+            viewModel.callLoginData(phone: myPhone, pass: myPass)
             self.performSegue(withIdentifier: "loginSeque", sender: nil)
-            
+          
             
         }else {
             wrongPassAndPhone.isHidden = false
         }
         
     }
+
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         if textField == txtPhone {
             phone.isHidden = false
