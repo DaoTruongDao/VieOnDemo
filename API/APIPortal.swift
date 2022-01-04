@@ -12,7 +12,7 @@ import ObjectMapper
 
 
 class APIPortal: NSObject {
-    var delegate: LoginDelegate?
+    weak var delegate:  ListDelegateService?
     static let shared = APIPortal()
     func requestApiWithDelegate(url: URL,
                                 menthodApi: HTTPMethod = HTTPMethod.post,
@@ -33,9 +33,8 @@ class APIPortal: NSObject {
                         print("Response status CODE: ", sts, " - URL", url)
                         if sts == 200 {
                             // delegate success here
-                            let mode = LoginModel.init(JSONString: response.value!)
-
-                            self.delegate?.loginData(data: mode!)
+                            let mode = ListModel.init(JSONString: response.value!)
+                            self.delegate?.listData(data: mode!)
 
                         }else{
         //                    fail()

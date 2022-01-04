@@ -213,8 +213,8 @@
 				666B6B6927575D5A00A46F32 /* ResponseObjects.swift */,
 				666B6B4727572F8E00A46F32 /* EnviromentBuild.swift */,
 				666B6B4227572F6200A46F32 /* BaseItem.swift */,
-				666B6B3D27572F0A00A46F32 /* APIPortal.swift */,
 				666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */,
+				666B6B3D27572F0A00A46F32 /* APIPortal.swift */,
 				6648DE2627742DBF0045ADDE /* LoginService.swift */,
 			);
 			path = API;

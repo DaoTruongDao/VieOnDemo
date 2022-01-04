@@ -9,13 +9,18 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-
+protocol LoginDelegateService: AnyObject{
+    func loginData(data: LoginModel)
+}
+protocol ListDelegateService: AnyObject {
+    func listData(data: ListModel)
+}
 struct RequestBodyFormDataKeyValue {
         var sKey: String
         var sValue: String
     }
 class LoginService{
-    weak var delegate: LoginDelegate?
+    weak var delegate: LoginDelegateService?
     static let shared = LoginService()
     func login(phone: String, pass: String) {
         var bodyKeyValue = [RequestBodyFormDataKeyValue]()
@@ -52,19 +57,13 @@ class LoginService{
                 }
                 let model = LoginModel.init(JSONString: reponseString)
                 self.delegate?.loginData(data: model!)
-                print(reponseString ?? "")
-                print(response.response?.statusCode)
-                var reponseData : NSData!
-                reponseData = response.data! as NSData
-                var iDataLength = reponseData.length
-                print("Size :\(iDataLength) bytes")
-               
+              
                
             }
         }
         
     }
-
+    
 }
     
 

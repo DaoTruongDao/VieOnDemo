@@ -57,9 +57,8 @@ class ViewController: UIViewController,
         btnLogin?.isEnabled = false
         btnLogin?.alpha = 0.5
         
+       
 
-     
-        
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
         
@@ -90,7 +89,6 @@ class ViewController: UIViewController,
         imageicon.isUserInteractionEnabled = true
         imageicon.addGestureRecognizer(tapGestureRecognizer)
         
-        viewModel.delegate = self
         
     }
 
@@ -113,13 +111,9 @@ class ViewController: UIViewController,
         let myPhone = txtPhone.text!
         let myPass = txtPass.text!
         if myPhone.count == 10 && myPass.count >= 6 {
-
+            viewModel.delegate = self
             viewModel.loginUser(phone: myPhone, pass: myPass)
-            if myPhone == "0908100196" && myPass == "123456" {
-                self.performSegue(withIdentifier: "loginSeque", sender: nil)
-            }else{
-                print("Error")
-            }
+
         }else {
             wrongPassAndPhone.isHidden = false
         }
@@ -213,13 +207,17 @@ class ViewController: UIViewController,
             
         }
     }
+
 }
 extension ViewController: LoginDelegate{
-    func loginData(data: LoginModel) {
-        guard let data = login else {return}
+    func loginDelegate(data: LoginModel) {
         self.login = data
+        if login?.accessToken != nil {
+            self.performSegue(withIdentifier: "loginSeque", sender: nil)
+        }else {
+            wrongPassAndPhone.isHidden = false
+        }
     }
 }
-
 
 
