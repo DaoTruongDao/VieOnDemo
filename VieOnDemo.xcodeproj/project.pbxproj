@@ -31,6 +31,7 @@
 		66888426276B1068008EFF5A /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66888425276B1068008EFF5A /* ListModel.swift */; };
 		6688842E276B248A008EFF5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688842D276B248A008EFF5A /* ViewController.swift */; };
 		66888433276B2816008EFF5A /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66888432276B2816008EFF5A /* ListController.swift */; };
+		668F79AC2785377200650A32 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668F79AB2785377200650A32 /* DetailModel.swift */; };
 		66B79E0526E7102F00C494E7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B79E0426E7102F00C494E7 /* CollectionViewCell.swift */; };
 		66CBDBED26B91AF5006FB2D9 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CBDBEC26B91AF5006FB2D9 /* Asset.xcassets */; };
 		94BBA3D166680DB6BA4E47F2 /* Pods_VieOnDemo_VieOnDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D38C7453AE5AFB03B9A1B87 /* Pods_VieOnDemo_VieOnDemoUITests.framework */; };
@@ -87,6 +88,7 @@
 		66888425276B1068008EFF5A /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		6688842D276B248A008EFF5A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66888432276B2816008EFF5A /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		668F79AB2785377200650A32 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		66B79E0426E7102F00C494E7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		66CBDBEC26B91AF5006FB2D9 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
 		7CB2D153EC3EC083D08A345B /* Pods-VieOnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VieOnDemo.release.xcconfig"; path = "Target Support Files/Pods-VieOnDemo/Pods-VieOnDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				666B6B8327586E7F00A46F32 /* LiveTvModel.swift */,
 				666B6BB92758B3B400A46F32 /* VotingModel.swift */,
 				66888425276B1068008EFF5A /* ListModel.swift */,
+				668F79AB2785377200650A32 /* DetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				666B6B8427586E7F00A46F32 /* LiveTvModel.swift in Sources */,
 				666B6B7A275774BF00A46F32 /* ProductModel.swift in Sources */,
 				666B6B3E27572F0A00A46F32 /* APIPortal.swift in Sources */,
+				668F79AC2785377200650A32 /* DetailModel.swift in Sources */,
 				6628994A26A674690070D4B6 /* AppDelegate.swift in Sources */,
 				6688842E276B248A008EFF5A /* ViewController.swift in Sources */,
 				666B6B4827572F8E00A46F32 /* EnviromentBuild.swift in Sources */,

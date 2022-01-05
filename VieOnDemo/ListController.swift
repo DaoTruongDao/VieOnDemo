@@ -28,13 +28,6 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
         navigationItem.title = "Bộ Sưu tập LK"
         
         navigationController?.navigationBar.backgroundColor = UIColor.darkGray
-        
-        //        viewMode.list {
-        //            self.lis = self.viewMode.lis?.items ?? []
-        //            self.collectionview?.reloadData()
-        //            print(self.lis)
-        //        }
-        
         collectionview?.delegate = self
         collectionview?.dataSource = self
         
@@ -116,24 +109,27 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
- 
+    var detailModel: DetailModel?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailList") as! DetailList
-        
-        let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/content/\(lis[indexPath.row].id)")
+     
+        let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/content/\(lis[indexPath.row].id ?? "")")
         APIPortal.shared.requestApiWith(url: url!, menthodApi: .get, encoding: JSONEncoding.default, header: ["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDEzNTcyMTksImp0aSI6IjBmZDdkNzY5NmFkNzgwM2VjODUxYzljNmE4YWE5NTkyIiwiYXVkIjoiIiwiaWF0IjoxNjQxMjcwODE5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTY0MTI3MDgxOCwic3ViIjoiMTRjZGEwNTAtYjc2Mi05NjBiLWVkNjctMzYxNTVlYzY4MTYwIiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjYzMEM4QkU5LTI3MzUtNDA4MS04RDcxLTg4OERGNDE2MzJEQiIsInVhIjoiVmllT04lMjBTdGFnaW5nLzIxMDYyNDAwIENGTmV0d29yay8xMzI3LjAuNCBEYXJ3aW4vMjEuMi4wIiwiZHQiOiJpb3MiLCJtdGgiOiJtb2JpbGVfbG9naW4iLCJtZCI6ImlQaG9uZSBTRSAoMm5kIEdlbikiLCJpc3ByZSI6MCwidmVyc2lvbiI6IjE2NDA4NDgwMjkifQ.MymfV4D3UZTm8KfG8qDEXAL62cDOh07eL7SwsqJ7nNQ"]) { (json) in
-            
-            
-            }fail: {
-                print("fail")
-                
+            let model = DetailModel.init(JSONString: json)
+            vc.labelText = model?.id
+            if let imageURL = URL(string: model?.images?.poster_v4 ?? "" ){
+                if let imageData = try? Data(contentsOf: imageURL){
+                    vc.image = UIImage(data: imageData)
+                }
             }
-
-
-        self.navigationController?.pushViewController(vc, animated: true)
-        vc.delegate = self
-        
-        
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            vc.delegate = self
+        }fail: {
+            print("fail")
+            
+        }
+ 
     }
     
     func collectionView(_ collectionView: UICollectionView,

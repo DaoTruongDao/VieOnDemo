@@ -553,15 +553,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXU-ew-veX">
-                                <rect key="frame" x="175" y="428.5" width="64" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="clickButton:" destination="Ses-6Y-gW6" eventType="touchUpInside" id="iVV-bh-6Ac"/>
-                                    <action selector="detail:" destination="Ses-6Y-gW6" eventType="touchUpInside" id="YaU-WD-g6u"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vt-aU-H3y">
                                 <rect key="frame" x="175" y="364" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -576,14 +567,9 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="URb-r0-90U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kXU-ew-veX" firstAttribute="centerY" secondItem="sGf-Zs-zU4" secondAttribute="centerY" id="Sn6-jz-woj"/>
-                            <constraint firstItem="kXU-ew-veX" firstAttribute="centerX" secondItem="sGf-Zs-zU4" secondAttribute="centerX" id="a7y-mk-QcP"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pUD-rf-TCN"/>
                     <connections>
-                        <outlet property="button" destination="kXU-ew-veX" id="Scr-Oe-V58"/>
                         <outlet property="hinhAnh" destination="LaT-Yz-tyn" id="RgK-YD-ySN"/>
                         <outlet property="label" destination="7vt-aU-H3y" id="JDG-lN-Uke"/>
                     </connections>

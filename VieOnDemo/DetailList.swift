@@ -18,21 +18,16 @@ class DetailList: UIViewController{
     
     @IBOutlet weak var hinhAnh: UIImageView!
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var button: UIButton!
+    
     var delegate: SenData?
     var labelText: String?
+    var image: UIImage?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         label.text = labelText
-        
+        hinhAnh.image = image
     }
     
-    @IBAction func clickButton(_ sender: Any) {
-        if self.labelText != nil {
-            if let dataItem = self.labelText{
-                self.delegate?.messageData(data: dataItem)
-            }
-        }
-    } 
 }
