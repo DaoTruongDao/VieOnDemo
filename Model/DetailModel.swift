@@ -9,12 +9,54 @@ import Foundation
 import ObjectMapper
 import Alamofire
 
-class DetailModel: Mappable {
-    
+class DetailModel: Mappable {    
     var id: String?
     var groupId: String?
     var type: Int?
+    var title: String?
     var images: ImageModel?
+    var shortDescription: String?
+    var longDescription: String?
+    var tags: [tags]?
+    var is_premium_display: String?
+    var trailerLinhPlay: trailerModel?
+
+    required init?(map: Map) {
+        
+    }
+    func mapping(map: Map) {
+        id <- map["id"]
+        groupId <- map["group_id"]
+        type <- map["type"]
+        title <- map["title"]
+        images <- map["images"]
+        shortDescription <- map["short_description"]
+        longDescription <- map["long_description"]
+        tags <- map["tags"]
+        is_premium_display <- map["is_premium_display"]
+        trailerLinhPlay <- map["trailer_link_play"]
+    }
+}
+
+class trailerModel: Mappable {
+
+    var hls_link_play: String?
+    var dash_link_play: String?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        hls_link_play <- map["hls_link_play"]
+        dash_link_play <- map["dash_link_play"]
+    }
+}
+class tags: Mappable {
+    var id: String?
+    var name: String?
+    var type: String?
+    var seo: seModel?
+    var slug: String?
     
     required init?(map: Map) {
         
@@ -22,11 +64,30 @@ class DetailModel: Mappable {
     
     func mapping(map: Map) {
         id <- map["id"]
-        groupId <- map["group_id"]
+        name <- map["name"]
         type <- map["type"]
-        images <- map["images"]
+        seo <- map["seo"]
+        slug <- map["slug"]
+        
     }
-
+}
+class seModel: Mappable {
+    var slug: String?
+    var url: String?
+    var url_redirect: String?
+    var share_url: String?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        slug <- map["slug"]
+        url <- map["url"]
+        url_redirect <- map["url_redirect"]
+        share_url <- map["share_url"]
+    }
+    
+    
 }
 
 class ImageModel: Mappable {
@@ -96,3 +157,7 @@ class ImageModel: Mappable {
     
 }
 
+
+   
+    
+    

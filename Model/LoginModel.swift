@@ -113,3 +113,5 @@ class MoreInfoModel: Mappable {
         
 
 }
+
+

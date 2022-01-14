@@ -10,54 +10,50 @@ import UIKit
 import SwiftUI
 import ObjectMapper
 import Alamofire
+import AVKit
+import AVFoundation
 
-
-class ListController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,SenData{
+class ListController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,SenData, LoginDelegate{
+    var loginModel: LoginModel?
+    func loginDelegate(data: LoginModel) {
+        self.loginModel = data
+    }
     
     func messageData(data: String) {
         print("Success", data)
     }
-    
     @IBOutlet weak var collectionview: UICollectionView!
     var viewMode = LoginViewModel.init()
+    var tokenMode = TokenViewModel.init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.title = "Bộ Sưu tập LK"
-        
         navigationController?.navigationBar.backgroundColor = UIColor.darkGray
         collectionview?.delegate = self
         collectionview?.dataSource = self
-        
+        viewMode.delegate = self
+        //        tokenMode.delegate = self
         viewMode.listItem {
             self.lis = self.viewMode.listModel?.items ?? []
             self.collectionview?.reloadData()
             print(self.lis)
         }
-        
     }
-    
+    var detailModel: DetailModel?
     var lis: [ItemModel] = []
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return lis.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        collectionView.backgroundColor = UIColor.gray
-        
         let listItem = self.lis[indexPath.row]
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        
         cell.rank.isHidden = true
         cell.vip.isHidden = true
         cell.top10.isHidden = true
-        
         cell.backgroundColor = UIColor.black
         if let imageURL = URL(string: listItem.images?.poster_v4 ?? "") {
-            
             if let imageData = try? Data(contentsOf: imageURL){
                 cell.userImage.image = UIImage(data: imageData)
             }
@@ -80,8 +76,6 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
         var news: [String] = lis[indexPath.item].tags_display ?? []
         let stackview = cell.stackview
         news.append("mỗi tuần")
-        
-        
         let widh = cell.bounds.width-50
         if news.isEmpty{
             cell.new.isHidden = true
@@ -102,34 +96,29 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.new.isHidden = false
             cell.nation.isHidden = true
         }
-        
-        
-        
         return cell
-        
     }
-    
-    var detailModel: DetailModel?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailList") as! DetailList
-     
-        let url = URL.init(string: "https://testing-api.vieon.vn/backend/cm/v5/content/\(lis[indexPath.row].id ?? "")")
-        APIPortal.shared.requestApiWith(url: url!, menthodApi: .get, encoding: JSONEncoding.default, header: ["content-type": "application/json", "Accept-Language": TimeZone.current.identifier ,"Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDEzNTcyMTksImp0aSI6IjBmZDdkNzY5NmFkNzgwM2VjODUxYzljNmE4YWE5NTkyIiwiYXVkIjoiIiwiaWF0IjoxNjQxMjcwODE5LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTY0MTI3MDgxOCwic3ViIjoiMTRjZGEwNTAtYjc2Mi05NjBiLWVkNjctMzYxNTVlYzY4MTYwIiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IjYzMEM4QkU5LTI3MzUtNDA4MS04RDcxLTg4OERGNDE2MzJEQiIsInVhIjoiVmllT04lMjBTdGFnaW5nLzIxMDYyNDAwIENGTmV0d29yay8xMzI3LjAuNCBEYXJ3aW4vMjEuMi4wIiwiZHQiOiJpb3MiLCJtdGgiOiJtb2JpbGVfbG9naW4iLCJtZCI6ImlQaG9uZSBTRSAoMm5kIEdlbikiLCJpc3ByZSI6MCwidmVyc2lvbiI6IjE2NDA4NDgwMjkifQ.MymfV4D3UZTm8KfG8qDEXAL62cDOh07eL7SwsqJ7nNQ"]) { (json) in
-            let model = DetailModel.init(JSONString: json)
-            vc.labelText = model?.id
-            if let imageURL = URL(string: model?.images?.poster_v4 ?? "" ){
-                if let imageData = try? Data(contentsOf: imageURL){
-                    vc.image = UIImage(data: imageData)
-                }
-            }
+        viewMode.detailItem(complete: {
+            self.detailModel = self.viewMode.detailModel
+            vc.Title = self.detailModel?.title
+            vc.LongDetail = self.detailModel?.shortDescription
             
+            let url = URL(string: self.detailModel?.trailerLinhPlay?.hls_link_play ?? "")
+            let player = AVPlayer(url: url!)
+            let avpCon = AVPlayerViewController()
+            vc.avpController = avpCon
+            vc.avpController.player = player
+            vc.avpController.player!.play()
+            let tagModel = self.detailModel?.tags ?? []
+            let tag = tagModel[1]
+            vc.Detail1 = tag.name ?? ""
+            vc.Detail2 = tag.type ?? ""
+            vc.Detail3 = tag.slug ?? ""
             self.navigationController?.pushViewController(vc, animated: true)
             vc.delegate = self
-        }fail: {
-            print("fail")
-            
-        }
- 
+        }, id: lis[indexPath.row].id ?? "")
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -141,14 +130,10 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 12, left: 16, bottom: 10, right: 8)
     }
-    
-    
 }

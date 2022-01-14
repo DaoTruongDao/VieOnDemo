@@ -1,17 +1,14 @@
 //
-//  CollectionViewCell.swift
+//  DetailCollectionViewCell.swift
 //  VieOnDemo
 //
-//  Created by Đạo Trường on 07/09/2021.
+//  Created by Đạo Trường on 14/01/2022.
 //
 
-import Foundation
 import UIKit
 
-
-
-class CollectionViewCell: UICollectionViewCell{
-        
+class DetailCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var vip: UILabel!
@@ -20,4 +17,11 @@ class CollectionViewCell: UICollectionViewCell{
     @IBOutlet weak var top10: UILabel!
     @IBOutlet weak var nation: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+ 
 }
+
+

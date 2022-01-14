@@ -10,13 +10,14 @@
 		4FF6543EB9FA5AA975F9D75B /* Pods_VieOnDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 888E6CBBFDF9EE6632C7DBA1 /* Pods_VieOnDemo.framework */; };
 		661C8285277173A400221D9D /* DetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C8284277173A400221D9D /* DetailList.swift */; };
 		6628994A26A674690070D4B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628994926A674690070D4B6 /* AppDelegate.swift */; };
-		6628995126A674690070D4B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6628994F26A674690070D4B6 /* Main.storyboard */; };
 		6628995626A6746B0070D4B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6628995426A6746B0070D4B6 /* LaunchScreen.storyboard */; };
 		6628996126A6746C0070D4B6 /* VieOnDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628996026A6746C0070D4B6 /* VieOnDemoTests.swift */; };
 		6628996C26A6746C0070D4B6 /* VieOnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628996B26A6746C0070D4B6 /* VieOnDemoUITests.swift */; };
 		6648DE2727742DBF0045ADDE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6648DE2627742DBF0045ADDE /* LoginService.swift */; };
 		664F305726CF812C0005C31B /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664F305626CF812C0005C31B /* ForgotPassViewController.swift */; };
 		664F305C26CF8C140005C31B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 664F305B26CF8C140005C31B /* GoogleService-Info.plist */; };
+		665755FD2786923800C586CA /* TokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665755FC2786923800C586CA /* TokenViewModel.swift */; };
+		665756052786CF9000C586CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665756042786CF9000C586CA /* Main.storyboard */; };
 		666B6B3627572EEB00A46F32 /* APIPortal+ExtensionsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */; };
 		666B6B3E27572F0A00A46F32 /* APIPortal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B3D27572F0A00A46F32 /* APIPortal.swift */; };
 		666B6B4327572F6200A46F32 /* BaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B4227572F6200A46F32 /* BaseItem.swift */; };
@@ -33,7 +34,10 @@
 		66888433276B2816008EFF5A /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66888432276B2816008EFF5A /* ListController.swift */; };
 		668F79AC2785377200650A32 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668F79AB2785377200650A32 /* DetailModel.swift */; };
 		66B79E0526E7102F00C494E7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B79E0426E7102F00C494E7 /* CollectionViewCell.swift */; };
+		66B7A4E427912774008F1C67 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7A4E227912774008F1C67 /* DetailCollectionViewCell.swift */; };
+		66B7A4E527912774008F1C67 /* DetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66B7A4E327912774008F1C67 /* DetailCollectionViewCell.xib */; };
 		66CBDBED26B91AF5006FB2D9 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CBDBEC26B91AF5006FB2D9 /* Asset.xcassets */; };
+		66F6EFAC2785963400C0C7EB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F6EFAB2785963400C0C7EB /* Token.swift */; };
 		94BBA3D166680DB6BA4E47F2 /* Pods_VieOnDemo_VieOnDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D38C7453AE5AFB03B9A1B87 /* Pods_VieOnDemo_VieOnDemoUITests.framework */; };
 		C589DB60D5997F51E9B5D4DC /* Pods_VieOnDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00CC74BF9E90FB40ACBB8C3 /* Pods_VieOnDemoTests.framework */; };
 /* End PBXBuildFile section */
@@ -62,7 +66,6 @@
 		661C8284277173A400221D9D /* DetailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailList.swift; sourceTree = "<group>"; };
 		6628994626A674690070D4B6 /* VieOnDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VieOnDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6628994926A674690070D4B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6628995026A674690070D4B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6628995526A6746B0070D4B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6628995726A6746B0070D4B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6628995C26A6746C0070D4B6 /* VieOnDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VieOnDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +77,8 @@
 		6648DE2627742DBF0045ADDE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		664F305626CF812C0005C31B /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		664F305B26CF8C140005C31B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		665755FC2786923800C586CA /* TokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewModel.swift; sourceTree = "<group>"; };
+		665756042786CF9000C586CA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIPortal+ExtensionsBase.swift"; sourceTree = "<group>"; };
 		666B6B3D27572F0A00A46F32 /* APIPortal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPortal.swift; sourceTree = "<group>"; };
 		666B6B4227572F6200A46F32 /* BaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItem.swift; sourceTree = "<group>"; };
@@ -90,7 +95,10 @@
 		66888432276B2816008EFF5A /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		668F79AB2785377200650A32 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		66B79E0426E7102F00C494E7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		66B7A4E227912774008F1C67 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		66B7A4E327912774008F1C67 /* DetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		66CBDBEC26B91AF5006FB2D9 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
+		66F6EFAB2785963400C0C7EB /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		7CB2D153EC3EC083D08A345B /* Pods-VieOnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VieOnDemo.release.xcconfig"; path = "Target Support Files/Pods-VieOnDemo/Pods-VieOnDemo.release.xcconfig"; sourceTree = "<group>"; };
 		888E6CBBFDF9EE6632C7DBA1 /* Pods_VieOnDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VieOnDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D38C7453AE5AFB03B9A1B87 /* Pods_VieOnDemo_VieOnDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VieOnDemo_VieOnDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,12 +163,13 @@
 		6628994826A674690070D4B6 /* VieOnDemo */ = {
 			isa = PBXGroup;
 			children = (
+				66B7A4E92791577E008F1C67 /* Cell */,
 				664F305B26CF8C140005C31B /* GoogleService-Info.plist */,
 				66CBDBEC26B91AF5006FB2D9 /* Asset.xcassets */,
 				6628994926A674690070D4B6 /* AppDelegate.swift */,
 				6688842D276B248A008EFF5A /* ViewController.swift */,
 				66B79E0426E7102F00C494E7 /* CollectionViewCell.swift */,
-				6628994F26A674690070D4B6 /* Main.storyboard */,
+				665756042786CF9000C586CA /* Main.storyboard */,
 				6628995426A6746B0070D4B6 /* LaunchScreen.storyboard */,
 				6628995726A6746B0070D4B6 /* Info.plist */,
 				664F305626CF812C0005C31B /* ForgotPassViewController.swift */,
@@ -193,6 +202,7 @@
 			children = (
 				666B6B6F27576A5600A46F32 /* ViewModelDelegate.swift */,
 				666B6B7427576A8400A46F32 /* LoginViewModel.swift */,
+				665755FC2786923800C586CA /* TokenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,8 +229,18 @@
 				666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */,
 				666B6B3D27572F0A00A46F32 /* APIPortal.swift */,
 				6648DE2627742DBF0045ADDE /* LoginService.swift */,
+				66F6EFAB2785963400C0C7EB /* Token.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		66B7A4E92791577E008F1C67 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				66B7A4E227912774008F1C67 /* DetailCollectionViewCell.swift */,
+				66B7A4E327912774008F1C67 /* DetailCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		91827052BDAA5026017AFD98 /* Frameworks */ = {
@@ -357,7 +377,8 @@
 				66CBDBED26B91AF5006FB2D9 /* Asset.xcassets in Resources */,
 				664F305C26CF8C140005C31B /* GoogleService-Info.plist in Resources */,
 				6628995626A6746B0070D4B6 /* LaunchScreen.storyboard in Resources */,
-				6628995126A674690070D4B6 /* Main.storyboard in Resources */,
+				665756052786CF9000C586CA /* Main.storyboard in Resources */,
+				66B7A4E527912774008F1C67 /* DetailCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,14 +517,17 @@
 				66888426276B1068008EFF5A /* ListModel.swift in Sources */,
 				66888433276B2816008EFF5A /* ListController.swift in Sources */,
 				666B6B5527574EC200A46F32 /* LoginModel.swift in Sources */,
+				66B7A4E427912774008F1C67 /* DetailCollectionViewCell.swift in Sources */,
 				66B79E0526E7102F00C494E7 /* CollectionViewCell.swift in Sources */,
 				666B6B7527576A8400A46F32 /* LoginViewModel.swift in Sources */,
 				666B6B8427586E7F00A46F32 /* LiveTvModel.swift in Sources */,
 				666B6B7A275774BF00A46F32 /* ProductModel.swift in Sources */,
+				66F6EFAC2785963400C0C7EB /* Token.swift in Sources */,
 				666B6B3E27572F0A00A46F32 /* APIPortal.swift in Sources */,
 				668F79AC2785377200650A32 /* DetailModel.swift in Sources */,
 				6628994A26A674690070D4B6 /* AppDelegate.swift in Sources */,
 				6688842E276B248A008EFF5A /* ViewController.swift in Sources */,
+				665755FD2786923800C586CA /* TokenViewModel.swift in Sources */,
 				666B6B4827572F8E00A46F32 /* EnviromentBuild.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,14 +564,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6628994F26A674690070D4B6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6628995026A674690070D4B6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6628995426A6746B0070D4B6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

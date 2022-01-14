@@ -14,14 +14,14 @@ import Alamofire
 
 class ViewController: UIViewController,
                       UITextFieldDelegate{
-   
+    
     
     
     var iconClick = false
     let imageicon = UIImageView()
     
     var viewModel = LoginViewModel.init()
-   
+    
     
     
     @IBOutlet weak var phone: UILabel!
@@ -42,7 +42,7 @@ class ViewController: UIViewController,
     
     var login: LoginModel?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -57,8 +57,8 @@ class ViewController: UIViewController,
         btnLogin?.isEnabled = false
         btnLogin?.alpha = 0.5
         
-       
-
+        
+        
         let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
         navigationItem.leftBarButtonItem = leftButton
         
@@ -76,7 +76,7 @@ class ViewController: UIViewController,
         
         imageicon.image = UIImage(named: "hide")
         
-
+        
         let contentView = UIView()
         contentView.addSubview(imageicon)
         contentView.frame = CGRect(x: 0, y: 0, width: UIImage(named: "hide")!.size.width, height: UIImage(named: "hide")!.size.height)
@@ -91,7 +91,7 @@ class ViewController: UIViewController,
         
         
     }
-
+    
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         if iconClick {
@@ -105,7 +105,7 @@ class ViewController: UIViewController,
             txtPass.isSecureTextEntry = true
         }
     }
-
+    
     @IBAction func singIn_tap(_ sender: Any) {
         
         let myPhone = txtPhone.text!
@@ -113,13 +113,13 @@ class ViewController: UIViewController,
         if myPhone.count == 10 && myPass.count >= 6 {
             viewModel.delegate = self
             viewModel.loginUser(phone: myPhone, pass: myPass)
-
+            
         }else {
             wrongPassAndPhone.isHidden = false
         }
         
     }
-
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         if textField == txtPhone {
             phone.isHidden = false
@@ -207,12 +207,13 @@ class ViewController: UIViewController,
             
         }
     }
-
+    
 }
 extension ViewController: LoginDelegate{
     func loginDelegate(data: LoginModel) {
         self.login = data
         if login?.accessToken != nil {
+            Token.shared.accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDE1MjY2OTUsImp0aSI6IjQwYzViNzIzZGRhOTFhNzk5ZDY1MzE5ZGE1OGMyYzJiIiwiYXVkIjoiIiwiaWF0IjoxNjQxNDQwMjk1LCJpc3MiOiJWaWVPbiIsIm5iZiI6MTY0MTQ0MDI5NCwic3ViIjoiMTRjZGEwNTAtYjc2Mi05NjBiLWVkNjctMzYxNTVlYzY4MTYwIiwic2NvcGUiOiJjbTpyZWFkIGNhczpyZWFkIGNhczp3cml0ZSBiaWxsaW5nOnJlYWQiLCJkaSI6IiIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yOC40IiwiZHQiOiJpb3MiLCJtdGgiOiJtb2JpbGVfbG9naW4iLCJtZCI6IiIsImlzcHJlIjowLCJ2ZXJzaW9uIjoiMTY0MDg0ODAyOSJ9.i38arPMgEtRTADVoBQSkWCX4ajYCz_rylvNIohL2eQY"
             self.performSegue(withIdentifier: "loginSeque", sender: nil)
         }else {
             wrongPassAndPhone.isHidden = false

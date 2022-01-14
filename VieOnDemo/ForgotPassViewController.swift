@@ -13,11 +13,11 @@ class ForgotPassViewController: UIViewController {
     @IBOutlet weak var txtPhone: UITextField!
     
     @IBOutlet weak var oTP: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         oTP.isHidden = true
-    // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
     }
     var verfitication_id : String? = nil
     @IBAction func submit(_ sender: Any) {

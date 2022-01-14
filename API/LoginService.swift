@@ -57,8 +57,6 @@ class LoginService{
                 }
                 let model = LoginModel.init(JSONString: reponseString)
                 self.delegate?.loginData(data: model!)
-              
-               
             }
         }
         
