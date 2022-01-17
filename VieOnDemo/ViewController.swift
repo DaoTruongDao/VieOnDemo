@@ -36,13 +36,19 @@ class ViewController: UIViewController,
     @IBOutlet weak var pass: UILabel!
     @IBOutlet weak var wrongPassAndPhone: UILabel!
     
+    @IBOutlet weak var btnProfile: UIButton!
     @IBAction func forgotPass(_ sender: Any) {
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
     
+    @IBAction func btnProfile(_ sender: Any) {
+       
+        let vc = storyboard!.instantiateViewController(withIdentifier: "ProfileUser")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     var login: LoginModel?
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -57,12 +63,7 @@ class ViewController: UIViewController,
         btnLogin?.isEnabled = false
         btnLogin?.alpha = 0.5
         
-        
-        
-        let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
-        navigationItem.leftBarButtonItem = leftButton
-        
-        
+
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.barStyle = .black
@@ -113,6 +114,8 @@ class ViewController: UIViewController,
         if myPhone.count == 10 && myPass.count >= 6 {
             viewModel.delegate = self
             viewModel.loginUser(phone: myPhone, pass: myPass)
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            
             
         }else {
             wrongPassAndPhone.isHidden = false

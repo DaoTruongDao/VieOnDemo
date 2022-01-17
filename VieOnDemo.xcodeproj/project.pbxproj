@@ -18,6 +18,9 @@
 		664F305C26CF8C140005C31B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 664F305B26CF8C140005C31B /* GoogleService-Info.plist */; };
 		665755FD2786923800C586CA /* TokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665755FC2786923800C586CA /* TokenViewModel.swift */; };
 		665756052786CF9000C586CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 665756042786CF9000C586CA /* Main.storyboard */; };
+		66596E7B279544640068DCD3 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66596E79279544640068DCD3 /* ProfileTableViewCell.swift */; };
+		66596E7C279544640068DCD3 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66596E7A279544640068DCD3 /* ProfileTableViewCell.xib */; };
+		6665269E279513FB0024EAF6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6665269D279513FB0024EAF6 /* TableViewController.swift */; };
 		666B6B3627572EEB00A46F32 /* APIPortal+ExtensionsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */; };
 		666B6B3E27572F0A00A46F32 /* APIPortal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B3D27572F0A00A46F32 /* APIPortal.swift */; };
 		666B6B4327572F6200A46F32 /* BaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B4227572F6200A46F32 /* BaseItem.swift */; };
@@ -79,6 +82,9 @@
 		664F305B26CF8C140005C31B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		665755FC2786923800C586CA /* TokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewModel.swift; sourceTree = "<group>"; };
 		665756042786CF9000C586CA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		66596E79279544640068DCD3 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		66596E7A279544640068DCD3 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		6665269D279513FB0024EAF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		666B6B3527572EEB00A46F32 /* APIPortal+ExtensionsBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIPortal+ExtensionsBase.swift"; sourceTree = "<group>"; };
 		666B6B3D27572F0A00A46F32 /* APIPortal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPortal.swift; sourceTree = "<group>"; };
 		666B6B4227572F6200A46F32 /* BaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItem.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 				664F305626CF812C0005C31B /* ForgotPassViewController.swift */,
 				66888432276B2816008EFF5A /* ListController.swift */,
 				661C8284277173A400221D9D /* DetailList.swift */,
+				6665269D279513FB0024EAF6 /* TableViewController.swift */,
 			);
 			path = VieOnDemo;
 			sourceTree = "<group>";
@@ -239,6 +246,8 @@
 			children = (
 				66B7A4E227912774008F1C67 /* DetailCollectionViewCell.swift */,
 				66B7A4E327912774008F1C67 /* DetailCollectionViewCell.xib */,
+				66596E79279544640068DCD3 /* ProfileTableViewCell.swift */,
+				66596E7A279544640068DCD3 /* ProfileTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -379,6 +388,7 @@
 				6628995626A6746B0070D4B6 /* LaunchScreen.storyboard in Resources */,
 				665756052786CF9000C586CA /* Main.storyboard in Resources */,
 				66B7A4E527912774008F1C67 /* DetailCollectionViewCell.xib in Resources */,
+				66596E7C279544640068DCD3 /* ProfileTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,9 +535,11 @@
 				66F6EFAC2785963400C0C7EB /* Token.swift in Sources */,
 				666B6B3E27572F0A00A46F32 /* APIPortal.swift in Sources */,
 				668F79AC2785377200650A32 /* DetailModel.swift in Sources */,
+				6665269E279513FB0024EAF6 /* TableViewController.swift in Sources */,
 				6628994A26A674690070D4B6 /* AppDelegate.swift in Sources */,
 				6688842E276B248A008EFF5A /* ViewController.swift in Sources */,
 				665755FD2786923800C586CA /* TokenViewModel.swift in Sources */,
+				66596E7B279544640068DCD3 /* ProfileTableViewCell.swift in Sources */,
 				666B6B4827572F8E00A46F32 /* EnviromentBuild.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

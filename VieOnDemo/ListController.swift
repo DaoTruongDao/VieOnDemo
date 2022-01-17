@@ -27,9 +27,7 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var tokenMode = TokenViewModel.init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let leftButton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: nil)
-        navigationItem.leftBarButtonItem = leftButton
-        navigationItem.title = "Bộ Sưu tập LK"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationController?.navigationBar.backgroundColor = UIColor.darkGray
         collectionview?.delegate = self
         collectionview?.dataSource = self

@@ -335,6 +335,19 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pP-R3-nw7">
+                                <rect key="frame" x="194" y="740" width="26" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="Gpz-mS-BGP"/>
+                                    <constraint firstAttribute="height" constant="30" id="dyV-q1-1oU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" backgroundImage="user5"/>
+                                <connections>
+                                    <action selector="btnProfile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tM3-mk-btd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
@@ -361,6 +374,7 @@
                             <constraint firstItem="Ul1-UG-14F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q9d-p5-eeh"/>
                             <constraint firstItem="2rH-8Y-IsG" firstAttribute="top" secondItem="dhk-dQ-AQ8" secondAttribute="bottom" constant="52" id="RIz-KK-DJp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SeQ-YN-fDR" secondAttribute="bottom" constant="10" id="U2P-sl-JMq"/>
+                            <constraint firstItem="7pP-R3-nw7" firstAttribute="top" secondItem="c53-q5-f72" secondAttribute="bottom" constant="26.5" id="ahg-iq-KU8"/>
                             <constraint firstItem="5Nj-rE-JIh" firstAttribute="top" secondItem="ayw-WG-e0p" secondAttribute="bottom" constant="2" id="b2n-ut-VzO"/>
                             <constraint firstItem="SeQ-YN-fDR" firstAttribute="top" secondItem="YTb-W4-IfN" secondAttribute="top" id="bCB-ti-Ugx"/>
                             <constraint firstItem="oqI-o7-PnM" firstAttribute="leading" secondItem="dhk-dQ-AQ8" secondAttribute="leading" constant="2" id="dDd-Ua-gde"/>
@@ -383,6 +397,7 @@
                             <constraint firstItem="c53-q5-f72" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sAG-SR-l8c"/>
                             <constraint firstItem="Ul1-UG-14F" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sd8-bM-NfZ"/>
                             <constraint firstItem="SeQ-YN-fDR" firstAttribute="bottom" secondItem="cQo-NI-Uqp" secondAttribute="bottom" id="tMI-2w-2WV"/>
+                            <constraint firstItem="7pP-R3-nw7" firstAttribute="centerX" secondItem="c53-q5-f72" secondAttribute="centerX" id="vuf-90-Ouh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o5u-SG-sCB" secondAttribute="trailing" constant="20" id="vzq-hA-bnN"/>
                             <constraint firstItem="WO0-TZ-ln2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="w25-Y7-cWg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2rH-8Y-IsG" secondAttribute="trailing" constant="20" id="wVx-K0-oFL"/>
@@ -397,6 +412,7 @@
                     <connections>
                         <outlet property="background" destination="Ul1-UG-14F" id="PXQ-4l-fiT"/>
                         <outlet property="btnLogin" destination="2rH-8Y-IsG" id="Gxs-Pd-eo3"/>
+                        <outlet property="btnProfile" destination="7pP-R3-nw7" id="ZGm-tQ-G2f"/>
                         <outlet property="pass" destination="GZA-0a-4Id" id="lJ0-y7-0kt"/>
                         <outlet property="phone" destination="SKN-lU-Nqp" id="mx6-He-0fx"/>
                         <outlet property="txtLine" destination="WO0-TZ-ln2" id="clW-Bu-i2B"/>
@@ -408,11 +424,47 @@
                         <outlet property="wrongPhone" destination="5Nj-rE-JIh" id="34u-5D-oay"/>
                         <segue destination="VOy-aE-KwV" kind="show" identifier="forgotPassSegue" id="Xcd-ha-6BA"/>
                         <segue destination="MrG-9Z-czj" kind="show" identifier="loginSeque" id="o77-3t-8Qd"/>
+                        <segue destination="EmY-To-AJV" kind="show" identifier="ProfileUser" id="7ey-F3-kYg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1605.7971014492755" y="71.651785714285708"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="qfo-FW-i8m">
+            <objects>
+                <viewController storyboardIdentifier="ProfileUser" id="EmY-To-AJV" customClass="TableViewController" customModule="VieOnDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ajv-xH-b7s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pd9-xG-Brm">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EmY-To-AJV" id="Rq4-aP-E0P"/>
+                                    <outlet property="delegate" destination="EmY-To-AJV" id="hFf-cJ-SuS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ms8-mR-Mai"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pd9-xG-Brm" firstAttribute="leading" secondItem="ms8-mR-Mai" secondAttribute="leading" id="2gL-px-oO4"/>
+                            <constraint firstItem="ms8-mR-Mai" firstAttribute="bottom" secondItem="pd9-xG-Brm" secondAttribute="bottom" id="DzB-ej-fko"/>
+                            <constraint firstItem="ms8-mR-Mai" firstAttribute="trailing" secondItem="pd9-xG-Brm" secondAttribute="trailing" id="Uj8-qQ-k8o"/>
+                            <constraint firstItem="pd9-xG-Brm" firstAttribute="top" secondItem="ms8-mR-Mai" secondAttribute="top" id="Xta-E5-J1E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Q8W-7z-FmG"/>
+                    <connections>
+                        <outlet property="tableView" destination="pd9-xG-Brm" id="FgC-90-DQn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L0T-yD-NwZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606" y="865"/>
         </scene>
         <!--List Controller-->
         <scene sceneID="YkN-Aw-GYY">
@@ -706,6 +758,9 @@
                                                 <inset key="titleEdgeInsets" minX="-30" minY="0.0" maxX="0.0" maxY="-35"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-50" maxY="0.0"/>
                                                 <state key="normal" title="Danh sách" image="Vector"/>
+                                                <connections>
+                                                    <action selector="btnAdd:" destination="Ses-6Y-gW6" eventType="touchUpInside" id="fZc-wJ-sVc"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czX-Mw-Ngd">
                                                 <rect key="frame" x="66.5" y="0.0" width="67" height="44"/>
@@ -779,6 +834,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="pUD-rf-TCN"/>
                     <connections>
+                        <outlet property="btnAdd" destination="kI2-Di-2SZ" id="LNI-h9-EgI"/>
                         <outlet property="btnComment" destination="VFv-Q9-TeL" id="B3N-nF-POF"/>
                         <outlet property="btnNews" destination="uq2-53-ckN" id="3DF-Rv-HQ0"/>
                         <outlet property="btnPlay" destination="UCi-IY-CAn" id="vrq-39-NKa"/>
@@ -802,7 +858,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oec-Rv-EcX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oxi-O6-hgU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrowshape.turn.up.left" catalog="system" backIndicatorTransitionMaskImage="arrowshape.turn.up.left" id="Oxi-O6-hgU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -826,11 +882,13 @@
         <image name="Vector-1" width="11" height="13"/>
         <image name="apple" width="50" height="50"/>
         <image name="arrow.down.to.line" catalog="system" width="128" height="128"/>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="facebook" width="50" height="50"/>
         <image name="forgot-password-concept-illustration_114360-1123" width="338" height="338"/>
         <image name="google" width="50" height="50"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
+        <image name="user5" width="512" height="512"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -848,6 +906,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
