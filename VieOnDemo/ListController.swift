@@ -27,7 +27,7 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var tokenMode = TokenViewModel.init()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationController?.navigationBar.backgroundColor = UIColor.darkGray
         collectionview?.delegate = self
         collectionview?.dataSource = self
@@ -54,8 +54,7 @@ class ListController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let imageURL = URL(string: listItem.images?.poster_v4 ?? "") {
             if let imageData = try? Data(contentsOf: imageURL){
                 cell.userImage.image = UIImage(data: imageData)
-            }
-            
+            }            
         }
         let vip = lis[indexPath.item].is_premium_display
         if vip != "" {

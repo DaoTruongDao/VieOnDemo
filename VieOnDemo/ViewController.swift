@@ -64,9 +64,10 @@ class ViewController: UIViewController,
         btnLogin?.alpha = 0.5
         
 
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.barTintColor = .black
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.barStyle = .black
+        
         
         background?.image = UIImage(named: "background")
         

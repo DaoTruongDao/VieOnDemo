@@ -54,8 +54,6 @@ class DetailList: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     var lis: [ItemModel] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
     @IBAction func btnNews(_ sender: Any) {
         btnComment.tintColor = .darkGray
         btnNews.tintColor = .white

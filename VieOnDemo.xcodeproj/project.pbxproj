@@ -32,6 +32,10 @@
 		666B6B7A275774BF00A46F32 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B79275774BF00A46F32 /* ProductModel.swift */; };
 		666B6B8427586E7F00A46F32 /* LiveTvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6B8327586E7F00A46F32 /* LiveTvModel.swift */; };
 		666B6BBA2758B3B400A46F32 /* VotingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666B6BB92758B3B400A46F32 /* VotingModel.swift */; };
+		667B3ED32797FF1400A3BB48 /* FireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B3ED22797FF1400A3BB48 /* FireBase.swift */; };
+		667B3ED82798019300A3BB48 /* SportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B3ED72798019300A3BB48 /* SportController.swift */; };
+		667B3EEB279808FB00A3BB48 /* SportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B3EE9279808FB00A3BB48 /* SportCollectionViewCell.swift */; };
+		667B3EEC279808FB00A3BB48 /* SportCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 667B3EEA279808FB00A3BB48 /* SportCollectionViewCell.xib */; };
 		66888426276B1068008EFF5A /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66888425276B1068008EFF5A /* ListModel.swift */; };
 		6688842E276B248A008EFF5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688842D276B248A008EFF5A /* ViewController.swift */; };
 		66888433276B2816008EFF5A /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66888432276B2816008EFF5A /* ListController.swift */; };
@@ -39,6 +43,7 @@
 		66B79E0526E7102F00C494E7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B79E0426E7102F00C494E7 /* CollectionViewCell.swift */; };
 		66B7A4E427912774008F1C67 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B7A4E227912774008F1C67 /* DetailCollectionViewCell.swift */; };
 		66B7A4E527912774008F1C67 /* DetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66B7A4E327912774008F1C67 /* DetailCollectionViewCell.xib */; };
+		66B87E9327B4BD0800D9DB18 /* SportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B87E9227B4BD0800D9DB18 /* SportModel.swift */; };
 		66CBDBED26B91AF5006FB2D9 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CBDBEC26B91AF5006FB2D9 /* Asset.xcassets */; };
 		66F6EFAC2785963400C0C7EB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F6EFAB2785963400C0C7EB /* Token.swift */; };
 		94BBA3D166680DB6BA4E47F2 /* Pods_VieOnDemo_VieOnDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D38C7453AE5AFB03B9A1B87 /* Pods_VieOnDemo_VieOnDemoUITests.framework */; };
@@ -96,6 +101,10 @@
 		666B6B79275774BF00A46F32 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		666B6B8327586E7F00A46F32 /* LiveTvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTvModel.swift; sourceTree = "<group>"; };
 		666B6BB92758B3B400A46F32 /* VotingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingModel.swift; sourceTree = "<group>"; };
+		667B3ED22797FF1400A3BB48 /* FireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBase.swift; sourceTree = "<group>"; };
+		667B3ED72798019300A3BB48 /* SportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportController.swift; sourceTree = "<group>"; };
+		667B3EE9279808FB00A3BB48 /* SportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCollectionViewCell.swift; sourceTree = "<group>"; };
+		667B3EEA279808FB00A3BB48 /* SportCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportCollectionViewCell.xib; sourceTree = "<group>"; };
 		66888425276B1068008EFF5A /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		6688842D276B248A008EFF5A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66888432276B2816008EFF5A /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
@@ -103,6 +112,7 @@
 		66B79E0426E7102F00C494E7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		66B7A4E227912774008F1C67 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		66B7A4E327912774008F1C67 /* DetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionViewCell.xib; sourceTree = "<group>"; };
+		66B87E9227B4BD0800D9DB18 /* SportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportModel.swift; sourceTree = "<group>"; };
 		66CBDBEC26B91AF5006FB2D9 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
 		66F6EFAB2785963400C0C7EB /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		7CB2D153EC3EC083D08A345B /* Pods-VieOnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VieOnDemo.release.xcconfig"; path = "Target Support Files/Pods-VieOnDemo/Pods-VieOnDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,13 +185,14 @@
 				6628994926A674690070D4B6 /* AppDelegate.swift */,
 				6688842D276B248A008EFF5A /* ViewController.swift */,
 				66B79E0426E7102F00C494E7 /* CollectionViewCell.swift */,
-				665756042786CF9000C586CA /* Main.storyboard */,
 				6628995426A6746B0070D4B6 /* LaunchScreen.storyboard */,
+				665756042786CF9000C586CA /* Main.storyboard */,
 				6628995726A6746B0070D4B6 /* Info.plist */,
 				664F305626CF812C0005C31B /* ForgotPassViewController.swift */,
 				66888432276B2816008EFF5A /* ListController.swift */,
 				661C8284277173A400221D9D /* DetailList.swift */,
 				6665269D279513FB0024EAF6 /* TableViewController.swift */,
+				667B3ED72798019300A3BB48 /* SportController.swift */,
 			);
 			path = VieOnDemo;
 			sourceTree = "<group>";
@@ -223,6 +234,7 @@
 				666B6BB92758B3B400A46F32 /* VotingModel.swift */,
 				66888425276B1068008EFF5A /* ListModel.swift */,
 				668F79AB2785377200650A32 /* DetailModel.swift */,
+				66B87E9227B4BD0800D9DB18 /* SportModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +260,9 @@
 				66B7A4E327912774008F1C67 /* DetailCollectionViewCell.xib */,
 				66596E79279544640068DCD3 /* ProfileTableViewCell.swift */,
 				66596E7A279544640068DCD3 /* ProfileTableViewCell.xib */,
+				667B3ED22797FF1400A3BB48 /* FireBase.swift */,
+				667B3EE9279808FB00A3BB48 /* SportCollectionViewCell.swift */,
+				667B3EEA279808FB00A3BB48 /* SportCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -383,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				667B3EEC279808FB00A3BB48 /* SportCollectionViewCell.xib in Resources */,
 				66CBDBED26B91AF5006FB2D9 /* Asset.xcassets in Resources */,
 				664F305C26CF8C140005C31B /* GoogleService-Info.plist in Resources */,
 				6628995626A6746B0070D4B6 /* LaunchScreen.storyboard in Resources */,
@@ -519,6 +535,7 @@
 				6648DE2727742DBF0045ADDE /* LoginService.swift in Sources */,
 				664F305726CF812C0005C31B /* ForgotPassViewController.swift in Sources */,
 				666B6B7027576A5600A46F32 /* ViewModelDelegate.swift in Sources */,
+				667B3ED82798019300A3BB48 /* SportController.swift in Sources */,
 				661C8285277173A400221D9D /* DetailList.swift in Sources */,
 				666B6B6A27575D5A00A46F32 /* ResponseObjects.swift in Sources */,
 				666B6B3627572EEB00A46F32 /* APIPortal+ExtensionsBase.swift in Sources */,
@@ -536,10 +553,13 @@
 				666B6B3E27572F0A00A46F32 /* APIPortal.swift in Sources */,
 				668F79AC2785377200650A32 /* DetailModel.swift in Sources */,
 				6665269E279513FB0024EAF6 /* TableViewController.swift in Sources */,
+				667B3ED32797FF1400A3BB48 /* FireBase.swift in Sources */,
 				6628994A26A674690070D4B6 /* AppDelegate.swift in Sources */,
+				667B3EEB279808FB00A3BB48 /* SportCollectionViewCell.swift in Sources */,
 				6688842E276B248A008EFF5A /* ViewController.swift in Sources */,
 				665755FD2786923800C586CA /* TokenViewModel.swift in Sources */,
 				66596E7B279544640068DCD3 /* ProfileTableViewCell.swift in Sources */,
+				66B87E9327B4BD0800D9DB18 /* SportModel.swift in Sources */,
 				666B6B4827572F8E00A46F32 /* EnviromentBuild.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

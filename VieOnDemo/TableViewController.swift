@@ -31,6 +31,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.selectionStyle = .none
         cell.lblMail.isHidden = true
         cell.lblLabel.isHidden = true
+        cell.backgroundColor = UIColor(red: 0.898/255.0, green: 0.898/255.0, blue: 0.898/255.0, alpha: 1)
         let cellImage = userProfile[indexPath.section].image?[indexPath.row]
         let cellName = userProfile[indexPath.section].sectionModel?[indexPath.row]
         if indexPath.section == 0 {
@@ -42,11 +43,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }else{
             cell.lblName.text = userProfile[indexPath.section].sectionModel?[indexPath.row]
             cell.imageCell.image = UIImage(named: cellImage ?? "")
-            cell.imageCell.tintColor = .white
+            cell.imageCell.tintColor = UIColor(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+//            cell.imageCell.tintColor = .white
         }
         
         if cellName == "Đăng Xuất" {
-            cell.btnButton.isHidden = true
+            cell.imageNext.isHidden = true
         }
         if cellName == "Danh Sách Của Tôi" ||  cellName == "Lịch Sử Giao Dịch"  || cellName == "Đăng Nhập SmartTV" || cellName == "Cài Đặt Ứng Dụng" || cellName ==  "Về Ứng dụng"{
             cell.lblLabel.isHidden = false
@@ -54,21 +56,22 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(userProfile[indexPath.section].sectionModel?[indexPath.row] ?? "")")
+         
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Sport") as! SportController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-
     
     @IBOutlet weak var tableView: UITableView!
     
- 
     var userProfile = [ProfileModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = UIColor(red: 0.898/255.0, green: 0.898/255.0, blue: 0.898/255.0, alpha: 1)
+        self.view.layer.backgroundColor = UIColor(red: 0.898/255.0, green: 0.898/255.0, blue: 0.898/255.0, alpha: 1).cgColor
+        navigationItem.title = "Cá Nhân"
         tableView.sectionHeaderHeight = 0
         tableView.sectionFooterHeight = 0
         tableView.register(UINib.init(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell") 
@@ -79,10 +82,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         userProfile.append(ProfileModel.init(brandName: "", sectionModel: ["Cài Đặt Ứng Dụng"], image: ["setting"]))
         userProfile.append(ProfileModel.init(brandName: "", sectionModel: ["Điều Khoản Sử Dụng", "Trung Tâm Hỗ Trợ","Góp Ý","Về Ứng dụng"], image: ["shield","group","help","infor"]))
         userProfile.append(ProfileModel.init(brandName: "", sectionModel: ["Đăng Xuất"], image: ["logout"]))
-
         
         tableView.reloadData()
-        
     }
-    
 }

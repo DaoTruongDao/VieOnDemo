@@ -10,9 +10,9 @@ import UIKit
 class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var imageCell: UIImageView!
     
-    @IBOutlet weak var btnButton: UIButton!
     
-    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var imageNext: UIImageView!
+    
     
     @IBOutlet weak var lblLabel: UILabel!
     @IBOutlet weak var lblMail: UILabel!
@@ -20,7 +20,7 @@ class ProfileTableViewCell: UITableViewCell {
         : UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
