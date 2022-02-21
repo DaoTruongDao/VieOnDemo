@@ -10,7 +10,9 @@ import UIKit
 
 
 class SportController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
     @IBOutlet weak var lblLine: UILabel!
+    @IBOutlet weak var liveShowView: LiveShowViewController!
     var ModelSport: [SportModel] = []
     var ImageModel = [ImageSportModel]()
     var ImageInModel = [ImageInSportModel]()

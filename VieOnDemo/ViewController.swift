@@ -40,6 +40,9 @@ class ViewController: UIViewController,
     @IBAction func forgotPass(_ sender: Any) {
         self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
     }
+    @IBAction func register(_ sender: Any) {
+        self.performSegue(withIdentifier: "Register", sender: nil)
+    }
     
     @IBAction func btnProfile(_ sender: Any) {
        

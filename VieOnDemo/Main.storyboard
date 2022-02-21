@@ -146,6 +146,54 @@
             </objects>
             <point key="canvasLocation" x="1606" y="-621"/>
         </scene>
+        <!--Show Image Controller-->
+        <scene sceneID="aYp-Hr-HfL">
+            <objects>
+                <viewController id="411-jd-hG1" customClass="ShowImageController" customModule="VieOnDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Tw-bm-lUD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPu-BO-YUj" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="0.0" y="151" width="414" height="594"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BPu-BO-YUj" secondAttribute="height" multiplier="375:538" id="bwF-1E-lU7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="itemSize">
+                                        <size key="value" width="256" height="356"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="automaticSlidingInterval">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="411-jd-hG1" id="d28-oW-n5K"/>
+                                    <outlet property="delegate" destination="411-jd-hG1" id="i58-Dl-x4D"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IGT-Bj-SNy"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="BPu-BO-YUj" firstAttribute="trailing" secondItem="IGT-Bj-SNy" secondAttribute="trailing" id="DeZ-e6-RmO"/>
+                            <constraint firstItem="BPu-BO-YUj" firstAttribute="leading" secondItem="IGT-Bj-SNy" secondAttribute="leading" id="Nxe-MX-epa"/>
+                            <constraint firstItem="BPu-BO-YUj" firstAttribute="centerY" secondItem="5Tw-bm-lUD" secondAttribute="centerY" id="fq3-Ck-kXL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xoz-kN-eSE"/>
+                    <connections>
+                        <outlet property="pagerView" destination="BPu-BO-YUj" id="FKf-df-1aV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TG0-iG-P1F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711.59420289855075" y="864.50892857142856"/>
+        </scene>
         <!--Đăng Nhập-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -318,6 +366,9 @@
                                                 <state key="normal" title="Đăng Ký Ngay">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="411-jd-hG1" kind="show" identifier="Register" id="PSE-db-TVg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -443,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0T-yD-NwZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="865"/>
+            <point key="canvasLocation" x="1570" y="865"/>
         </scene>
         <!--Sport Controller-->
         <scene sceneID="DZk-ko-EFD">
@@ -490,14 +541,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeS-1O-cNM" customClass="LiveShowViewController" customModule="VieOnDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="125" width="414" height="737"/>
+                                <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GdL-ce-J4V"/>
-                        <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LWR-BR-bym" firstAttribute="leading" secondItem="GdL-ce-J4V" secondAttribute="leading" id="0x6-J3-h0e"/>
                             <constraint firstItem="QzW-fB-STA" firstAttribute="leading" secondItem="GdL-ce-J4V" secondAttribute="leading" id="2ZI-N2-f0S"/>
                             <constraint firstItem="LWR-BR-bym" firstAttribute="top" secondItem="GdL-ce-J4V" secondAttribute="top" id="8rW-ax-vRI"/>
                             <constraint firstItem="GdL-ce-J4V" firstAttribute="trailing" secondItem="QzW-fB-STA" secondAttribute="trailing" id="EiK-3r-lsU"/>
+                            <constraint firstItem="XeS-1O-cNM" firstAttribute="bottom" secondItem="GdL-ce-J4V" secondAttribute="bottom" id="F6E-Ed-EDr"/>
+                            <constraint firstItem="XeS-1O-cNM" firstAttribute="top" secondItem="LWR-BR-bym" secondAttribute="bottom" constant="5" id="JF9-uC-3KK"/>
+                            <constraint firstItem="XeS-1O-cNM" firstAttribute="trailing" secondItem="GdL-ce-J4V" secondAttribute="trailing" id="aLO-SE-mWS"/>
+                            <constraint firstItem="XeS-1O-cNM" firstAttribute="leading" secondItem="GdL-ce-J4V" secondAttribute="leading" id="e08-mX-Ozk"/>
                             <constraint firstItem="QzW-fB-STA" firstAttribute="top" secondItem="LWR-BR-bym" secondAttribute="bottom" constant="-1" id="fyY-ym-WKv"/>
                             <constraint firstItem="LWR-BR-bym" firstAttribute="trailing" secondItem="GdL-ce-J4V" secondAttribute="trailing" id="nk6-xM-N3d"/>
                         </constraints>
@@ -506,6 +565,7 @@
                     <connections>
                         <outlet property="collectionview" destination="LWR-BR-bym" id="xNg-RZ-pCP"/>
                         <outlet property="lblLine" destination="QzW-fB-STA" id="X2A-su-OKM"/>
+                        <outlet property="liveShowView" destination="XeS-1O-cNM" id="QC2-7I-0ns"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPz-1b-cgY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -956,6 +1016,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
